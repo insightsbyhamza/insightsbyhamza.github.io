@@ -15,7 +15,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#6aa84f">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Muhammad Hamza","jobTitle":"Data Analyst & Automation Specialist","email":"m_h2713@yahoo.com","telephone":"+92 321 6060207","address":{"@type":"PostalAddress","addressLocality":"Islamabad","addressCountry":"PK"},"url":"https://linkedin.com/in/mhamzzaa","knowsAbout":["Power BI","Tableau","Python","SQL","Selenium","Playwright","Web Scraping","Automation","DeepSeek API"]}
+{"@context":"https://schema.org","@type":"Person","name":"Muhammad Hamza","jobTitle":"Data Analyst & Automation Specialist","email":"m_h2713@yahoo.com","address":{"@type":"PostalAddress","addressLocality":"Islamabad","addressCountry":"PK"},"url":"https://linkedin.com/in/mhamzzaa","knowsAbout":["Power BI","Tableau","Python","SQL","Selenium","Playwright","Web Scraping","Automation","DeepSeek API"]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,6 +119,32 @@ body.light .cur-trail{mix-blend-mode:multiply}
 .sec-title em{font-weight:600}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
 .reveal.in{opacity:1;transform:none}
+/* staggered pop-up (generic) */
+.pop{opacity:0;transform:translateY(34px) scale(.94);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.pop.in{opacity:1;transform:none}
+/* 3D flip-in for skill cards */
+.skgrid{perspective:1100px}
+.flipin{opacity:0;transform:perspective(1100px) rotateX(-20deg) translateY(10px);transform-origin:center top;
+  transition:opacity .18s cubic-bezier(.16,1,.3,1),transform .18s cubic-bezier(.16,1,.3,1)}
+.flipin.in{opacity:1;transform:perspective(1100px) rotateX(0) translateY(0)}
+/* alternating side-slide for automation cards (zig-zag) */
+.aslide{opacity:0;transition:opacity .45s cubic-bezier(.16,1,.3,1),transform .45s cubic-bezier(.16,1,.3,1)}
+.aslide:nth-child(odd){transform:translateX(-55px)}
+.aslide:nth-child(even){transform:translateX(55px)}
+.aslide.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.pop,.aslide,.flipin{opacity:1!important;transform:none!important}}
+/* directional reveals (used in About for a cinematic entrance) */
+.reveal-l{opacity:0;transform:translateX(-60px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal-r{opacity:0;transform:translateX(60px);transition:opacity .9s cubic-bezier(.16,1,.3,1) .12s,transform .9s cubic-bezier(.16,1,.3,1) .12s}
+.reveal-l.in,.reveal-r.in{opacity:1;transform:none}
+.about-photo.reveal-l img{transform:scale(1.12);transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
+.about-photo.reveal-l.in img{transform:scale(1)}
+.about-card.reveal-r p{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.about-card.reveal-r.in p{opacity:1;transform:none}
+.about-card.reveal-r.in p:nth-child(1){transition-delay:.25s}
+.about-card.reveal-r.in p:nth-child(2){transition-delay:.4s}
+.about-card.reveal-r.in p:nth-child(3){transition-delay:.55s}
+@media(prefers-reduced-motion:reduce){.reveal-l,.reveal-r,.about-photo.reveal-l img,.about-card.reveal-r p{opacity:1!important;transform:none!important}}
 
 .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:1.6rem;align-items:stretch}
 .about-photo{aspect-ratio:4/4.6;overflow:hidden;border-radius:24px;border:1px solid var(--bd);background:var(--black3);display:grid;place-items:center}
@@ -130,7 +156,7 @@ body.light .cur-trail{mix-blend-mode:multiply}
 .about-card p{color:var(--gray);margin-bottom:1rem;font-weight:500}
 .about-card p:last-child{margin-bottom:0}.about-card p em{color:var(--mustard-light)}
 
-.skgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.skgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .skill{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:1.6rem 1.1rem;text-align:center;transition:transform .3s,border-color .3s;backdrop-filter:blur(6px)}
 .skill:hover{transform:translateY(-7px);border-color:rgba(var(--mustard-rgb),.5)}
 .skill .ic{width:52px;height:52px;border-radius:15px;background:rgba(var(--mustard-rgb),.16);border:1px solid var(--bd);color:var(--mustard);display:grid;place-items:center;font-size:1.4rem;margin:0 auto .9rem;transition:transform .3s}
@@ -195,7 +221,7 @@ body.light .tl-dot{border-color:var(--black2)}
 .atools{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.45rem}
 .atools span{font-size:.62rem;font-weight:600;color:var(--mustard);border:1px solid rgba(var(--mustard-rgb),.4);padding:.18rem .55rem;border-radius:100px}
 .arow p{color:var(--gray);font-size:.86rem;font-weight:500}.arow p em{color:var(--mustard-light)}
-.arow .out{text-align:right;white-space:nowrap}
+.arow .out{text-align:right;white-space:nowrap;min-width:92px}
 .arow .out .v{font-family:'Fraunces',serif;font-weight:900;font-size:1.25rem;color:var(--mustard-light);line-height:1}
 .arow .out .l2{font-size:.58rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);margin-top:.3rem}
 
@@ -225,7 +251,18 @@ body.light .tl-dot{border-color:var(--black2)}
 @media(max-width:600px){.particles{display:none}
   .nav-links{position:fixed;top:72px;left:1rem;right:1rem;flex-direction:column;gap:.2rem;background:var(--black3);border:1px solid var(--bd);border-radius:20px;padding:.8rem;display:none}
   .nav-links.open{display:flex}.nav-links a{width:100%;padding:.7rem .9rem}.burger{display:flex}
+  .nav-logo{font-size:.95rem}
+  .dd-preview{height:auto}.dd-img{aspect-ratio:16/9;flex:none}.dd-info{min-height:auto}
   .arow{grid-template-columns:auto 1fr}.arow .out{grid-column:1 / -1;text-align:left}.dd-info{flex-direction:column;align-items:flex-start}}
+@media(max-width:430px){
+  .wrap{padding:0 1.1rem}
+  .skgrid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .nav-pill{padding:.5rem .5rem .5rem 1rem}.nav-logo{font-size:.86rem}
+  .hero{padding:7.5rem 0 2.5rem}
+  .contact-card{padding:2rem 1.2rem}
+  .arow{padding:1.2rem 1.1rem}
+}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.hero .badge,.hero .role,.hero .sub,.hero .cta,.stats,.hero h1 .word{opacity:1;transform:none;animation:none}}
 </style>
 </head>
@@ -239,7 +276,7 @@ body.light .tl-dot{border-color:var(--black2)}
 
 <div class="nav">
   <div class="nav-pill">
-    <a href="#top" class="nav-logo">M. <span>Hamza.</span></a>
+    <a href="#top" class="nav-logo">Muhammad <span>Hamza.</span></a>
     <nav class="nav-links" id="navLinks">
       <a href="#about">About</a><a href="#skills">Skills</a><a href="#exp">Experience</a><a href="#work">Work</a><a href="#autos">Automations</a><a href="#contact">Contact</a>
     </nav>
@@ -261,7 +298,7 @@ body.light .tl-dot{border-color:var(--black2)}
     <div class="cta">
       <a href="#work" class="btn btn-primary">See My Work <i class="fas fa-arrow-right"></i></a>
       <!-- EDIT: link to your real résumé file -->
-      <a href="ATS.pdf" class="btn btn-ghost">R&eacute;sum&eacute;</a>
+      <a href="uploads/Resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
     </div>
     <div class="stats">
       <div class="stat"><div class="n"><span class="cnt" data-to="7" data-suf="+">0</span></div><div class="l">Years Experience</div></div>
@@ -281,12 +318,12 @@ body.light .tl-dot{border-color:var(--black2)}
   <section class="sec" id="about">
     <div class="sec-head reveal"><span class="eyebrow">About Me</span><h2 class="sec-title">Hi, I'm <em class="gt">Hamza.</em></h2></div>
     <div class="about">
-      <div class="about-photo reveal">
+      <div class="about-photo reveal-l">
         <!-- EDIT: your photo (uploads/hamza.jpg) -->
         <img src="uploads/hamza.jpg" alt="Muhammad Hamza — Data Analyst &amp; Automation Specialist" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <i class="fas fa-user fb" style="display:none"></i>
       </div>
-      <div class="about-card reveal">
+      <div class="about-card reveal-r">
         <p class="lead">I turn <em>messy, scattered data</em> into dashboards people actually trust &mdash; and the reports nobody wants to do, into systems that <em>run themselves.</em></p>
         <p>A Data Analyst &amp; Automation Specialist with <strong style="color:var(--cream)">7+ years</strong>, I grew from SEO and e-commerce into full-time data infrastructure. Today at <strong style="color:var(--cream)">Pakistan's Press Information Department</strong>, I automate daily media monitoring with the <em>DeepSeek API</em> &mdash; scraping coverage across <strong style="color:var(--cream)">29+ newspapers</strong> and replacing manual reporting with hands-off pipelines.</p>
         <p>My toolkit runs from <strong style="color:var(--cream)">Power BI, Tableau &amp; SQL</strong> to <strong style="color:var(--cream)">Python, Selenium, Playwright &amp; Apps Script</strong>. The goal is always the same: take a process from <em>"someone does this every Monday"</em> to <em>"it just runs."</em></p>
@@ -298,14 +335,12 @@ body.light .tl-dot{border-color:var(--black2)}
   <section class="sec" id="skills">
     <div class="sec-head reveal"><span class="eyebrow">Tools of the Trade</span><h2 class="sec-title">Skills &amp; <em class="gt">Stack</em></h2></div>
     <div class="skgrid">
-      <div class="skill reveal"><div class="ic"><i class="fas fa-chart-column"></i></div><div class="nm">Power BI</div><div class="tg">DAX, Looker Studio</div></div>
-      <div class="skill reveal"><div class="ic"><i class="fas fa-chart-pie"></i></div><div class="nm">Tableau</div><div class="tg">Qlik Sense</div></div>
-      <div class="skill reveal"><div class="ic"><i class="fab fa-python"></i></div><div class="nm">Python</div><div class="tg">Pandas, Tkinter</div></div>
-      <div class="skill reveal"><div class="ic"><i class="fas fa-database"></i></div><div class="nm">SQL</div><div class="tg">MySQL, MS SQL</div></div>
-      <div class="skill reveal"><div class="ic"><i class="fas fa-globe"></i></div><div class="nm">Selenium</div><div class="tg">Web Scraping</div></div>
-      <div class="skill reveal"><div class="ic"><i class="fas fa-code"></i></div><div class="nm">Playwright</div><div class="tg">BeautifulSoup</div></div>
-      <div class="skill reveal"><div class="ic"><i class="fab fa-google"></i></div><div class="nm">Apps Script</div><div class="tg">N8N, Zapier</div></div>
-      <div class="skill reveal"><div class="ic"><i class="fas fa-brain"></i></div><div class="nm">DeepSeek API</div><div class="tg">OpenAI Whisper</div></div>
+      <div class="skill flipin"><div class="ic"><i class="fas fa-chart-column"></i></div><div class="nm">Data Visualization</div><div class="tg">Power BI &middot; Tableau &middot; Looker</div></div>
+      <div class="skill flipin"><div class="ic"><i class="fab fa-python"></i></div><div class="nm">Programming</div><div class="tg">Python &middot; SQL</div></div>
+      <div class="skill flipin"><div class="ic"><i class="fas fa-spider"></i></div><div class="nm">Web Scraping</div><div class="tg">Selenium &middot; Playwright &middot; BS4</div></div>
+      <div class="skill flipin"><div class="ic"><i class="fas fa-gears"></i></div><div class="nm">Automation</div><div class="tg">Apps Script &middot; Python</div></div>
+      <div class="skill flipin"><div class="ic"><i class="fas fa-database"></i></div><div class="nm">Databases</div><div class="tg">MySQL</div></div>
+      <div class="skill flipin"><div class="ic"><i class="fas fa-brain"></i></div><div class="nm">AI</div><div class="tg">DeepSeek API &middot; Whisper</div></div>
     </div>
   </section>
 
@@ -387,13 +422,13 @@ body.light .tl-dot{border-color:var(--black2)}
   <section class="sec" id="autos">
     <div class="sec-head reveal"><span class="eyebrow">Automations</span><h2 class="sec-title">The <em class="gt">boring part,</em> done.</h2></div>
     <div class="autos">
-      <div class="arow reveal"><div class="circle">01</div><div><h3>Urgent-case alert pipeline</h3><div class="atools"><span>Apps Script</span><span>Python</span><span>Selenium</span></div><p>A Google Form triggers an Apps Script that builds a PDF, emails stakeholders, and drops the file in Drive. A Python watcher picks it up and posts it to the WhatsApp response group within minutes &mdash; <em>on-call alerts, hands-free.</em></p></div><div class="out"><div class="v">&lt;5m</div><div class="l2">alert to inbox</div></div></div>
-      <div class="arow reveal"><div class="circle">02</div><div><h3>Brand24 monitoring, end-to-end</h3><div class="atools"><span>Python</span><span>Tkinter</span><span>Selenium</span></div><p>Tkinter takes the keywords from the user, pastes them into the search field, applies region/language/date filters, downloads the PDF, renames it by keyword, ships it to the right WhatsApp group, and deletes the file to avoid any duplications.</p></div><div class="out"><div class="v">1</div><div class="l2">manual click</div></div></div>
-      <div class="arow reveal"><div class="circle">03</div><div><h3>Social scraper for FB &amp; Instagram</h3><div class="atools"><span>Python</span><span>Playwright</span><span>Selenium</span></div><p>Reads target handles from the social-media team's sheet, opens each profile in a headless browser, scrolls through posts, and writes a clean CSV &mdash; <em>captions, dates, engagement, links.</em></p></div><div class="out"><div class="v">1-CLICK</div><div class="l2">posts &rarr; CSV</div></div></div>
-      <div class="arow reveal"><div class="circle">04</div><div><h3>Newspaper archive scraper</h3><div class="atools"><span>Python</span><span>BeautifulSoup</span><span>DeepSeek API</span><span>PDF</span></div><p>A site-aware Python crawler walks each paper's archive, handles pagination and date filters, and collects article text + metadata into a tidy dataset. Each item is then passed to the <em>DeepSeek API for sentiment analysis</em>, and the results are compiled into a ready-to-share <em>PDF report</em> &mdash; end to end, automatically.</p></div><div class="out"><div class="v">29</div><div class="l2">papers covered</div></div></div>
-      <div class="arow reveal"><div class="circle">05</div><div><h3>Multi-language fatwa scrapers</h3><div class="atools"><span>Python</span><span>BeautifulSoup</span><span>Playwright</span></div><p>Each website got its own scraper &mdash; every site has a different layout and language, so one-size-fits-all wouldn't work. Each scraper pulls the data and outputs clean JSON and CSV files <em>in the source language.</em></p></div><div class="out"><div class="v">~3 LAC</div><div class="l2">rows scraped</div></div></div>
-      <div class="arow reveal"><div class="circle">06</div><div><h3>Daily media monitoring brief</h3><div class="atools"><span>Python</span><span>DeepSeek API</span><span>Word</span></div><p>A scheduled pipeline scrapes the day's coverage, runs each item through the DeepSeek API for sentiment, then assembles a polished Word report &mdash; headlines, sentiment breakdown and source mix &mdash; <em>ready in the editor's inbox every morning.</em></p></div><div class="out"><div class="v">DAILY</div><div class="l2">word report</div></div></div>
-      <div class="arow reveal"><div class="circle">07</div><div><h3>Speech-to-text transcription</h3><div class="atools"><span>OpenAI Whisper</span><span>Python</span></div><p>A multi-language transcription system built on OpenAI Whisper that converts audio and video coverage into accurate, searchable text. It lets broadcast clips be monitored and analysed the same way as print &mdash; <em>making spoken coverage searchable alongside everything else.</em></p></div><div class="out"><div class="v">Multi</div><div class="l2">language</div></div></div>
+      <div class="arow aslide"><div class="circle">01</div><div><h3>Urgent-case alert pipeline</h3><div class="atools"><span>Apps Script</span><span>Python</span><span>Selenium</span></div><p>A Google Form triggers an Apps Script that builds a PDF, emails stakeholders, and drops the file in Drive. A Python watcher picks it up and posts it to the WhatsApp response group within minutes &mdash; <em>on-call alerts, hands-free.</em></p></div><div class="out"><div class="v">&lt;5m</div><div class="l2">alert to inbox</div></div></div>
+      <div class="arow aslide"><div class="circle">02</div><div><h3>Brand24 monitoring, end-to-end</h3><div class="atools"><span>Python</span><span>Tkinter</span><span>Selenium</span></div><p>Tkinter takes the keywords from the user, pastes them into the search field, applies region/language/date filters, downloads the PDF, renames it by keyword, ships it to the right WhatsApp group, and deletes the file to avoid any duplications.</p></div><div class="out"><div class="v">1</div><div class="l2">manual click</div></div></div>
+      <div class="arow aslide"><div class="circle">03</div><div><h3>Social scraper for FB &amp; Instagram</h3><div class="atools"><span>Python</span><span>Playwright</span><span>Selenium</span></div><p>Reads target handles from the social-media team's sheet, opens each profile in a headless browser, scrolls through posts, and writes a clean CSV &mdash; <em>captions, dates, engagement, links.</em></p></div><div class="out"><div class="v">1-CLICK</div><div class="l2">posts &rarr; CSV</div></div></div>
+      <div class="arow aslide"><div class="circle">04</div><div><h3>Newspaper archive scraper</h3><div class="atools"><span>Python</span><span>BeautifulSoup</span><span>DeepSeek API</span><span>PDF</span></div><p>A site-aware Python crawler walks each paper's archive, handles pagination and date filters, and collects article text + metadata into a tidy dataset. Each item is then passed to the <em>DeepSeek API for sentiment analysis</em>, and the results are compiled into a ready-to-share <em>PDF report</em> &mdash; end to end, automatically.</p></div><div class="out"><div class="v">29+</div><div class="l2">sources automated</div></div></div>
+      <div class="arow aslide"><div class="circle">05</div><div><h3>Multi-language fatwa scrapers</h3><div class="atools"><span>Python</span><span>BeautifulSoup</span><span>Playwright</span></div><p>Each website got its own scraper &mdash; every site has a different layout and language, so one-size-fits-all wouldn't work. Each scraper pulls the data and outputs clean JSON and CSV files <em>in the source language.</em></p></div><div class="out"><div class="v">~3 LAC</div><div class="l2">rows scraped</div></div></div>
+      <div class="arow aslide"><div class="circle">06</div><div><h3>Daily media monitoring brief</h3><div class="atools"><span>Python</span><span>DeepSeek API</span><span>Word</span></div><p>A scheduled pipeline scrapes the day's coverage, runs each item through the DeepSeek API for sentiment, then assembles a polished Word report &mdash; headlines, sentiment breakdown and source mix &mdash; <em>ready in the editor's inbox every morning.</em></p></div><div class="out"><div class="v">DAILY</div><div class="l2">word report</div></div></div>
+      <div class="arow aslide"><div class="circle">07</div><div><h3>Speech-to-text transcription</h3><div class="atools"><span>OpenAI Whisper</span><span>Python</span></div><p>A multi-language transcription system built on OpenAI Whisper that converts audio and video coverage into accurate, searchable text. It lets broadcast clips be monitored and analyzed the same way as print &mdash; <em>making spoken coverage searchable alongside everything else.</em></p></div><div class="out"><div class="v">Multi</div><div class="l2">language</div></div></div>
     </div>
   </section>
 
@@ -405,13 +440,7 @@ body.light .tl-dot{border-color:var(--black2)}
       <p>If you've got data sitting somewhere awkward, or a process someone does every Monday &mdash; drop a line.</p>
       <a href="mailto:m_h2713@yahoo.com" class="email">m_h2713@yahoo.com</a>
       <div class="cmeta">
-        <a href="tel:+923216060207"><i class="fas fa-phone"></i> +92 321 6060207</a>
         <span><i class="fas fa-location-dot"></i> Islamabad, Pakistan</span>
-      </div>
-      <div class="clinks">
-        <a href="https://www.linkedin.com/in/mhamzzaa/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-        <a href="mailto:m_h2713@yahoo.com" class="btn btn-ghost"><i class="fas fa-envelope"></i> Email</a>
-        <a href="ATS.pdf" class="btn btn-ghost"><i class="fas fa-file-lines"></i> Résumé</a>
       </div>
     </div>
   </section>
@@ -419,19 +448,16 @@ body.light .tl-dot{border-color:var(--black2)}
 </div>
 
 <footer class="foot">
-  <div class="brand">Muhammad <span>Hamza.</span></div>
   <div class="socials">
     <a href="https://www.linkedin.com/in/mhamzzaa/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-    <a href="tel:+923216060207" aria-label="Phone"><i class="fas fa-phone"></i></a>
     <a href="mailto:m_h2713@yahoo.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
   </div>
-  <div class="copy">&copy; <span id="year"></span> Muhammad Hamza &middot; Data Analyst &amp; Automation Specialist &middot; Islamabad, Pakistan</div>
+  <div class="copy">Muhammad Hamza &middot; Data Analyst &amp; Automation Specialist &middot; Islamabad, Pakistan</div>
 </footer>
 
 <button class="back-top" id="backTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
 
   /* cursor trail — comet tail of dots that follow & fade behind the mouse */
   (function(){
@@ -493,8 +519,19 @@ body.light .tl-dot{border-color:var(--black2)}
       })();
     }
   }
-  var rev = new IntersectionObserver(function(entries,obs){ entries.forEach(function(e,i){ if(e.isIntersecting){ var el=e.target; setTimeout(function(){el.classList.add('in');},(i%4)*80); obs.unobserve(el); } }); }, { threshold:0.08, rootMargin:'0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(function(el){ rev.observe(el); });
+  var rev = new IntersectionObserver(function(entries,obs){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var el=e.target;
+        // cards inside a grid stagger by their position among siblings; others just reveal
+        var staggered = (el.classList.contains('pop') || el.classList.contains('aslide') || el.classList.contains('flipin')) && el.parentNode;
+        var idx = staggered ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
+        setTimeout(function(){ el.classList.add('in'); }, Math.min(idx,7)*22);
+        obs.unobserve(el);
+      }
+    });
+  }, { threshold:0.08, rootMargin:'0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal, .reveal-l, .reveal-r, .pop, .aslide, .flipin').forEach(function(el){ rev.observe(el); });
   function animateCount(el){ var to=+el.dataset.to, suf=el.dataset.suf||'', dur=1600, start=performance.now();
     function step(now){ var p=Math.min((now-start)/dur,1), e=1-Math.pow(1-p,3); el.textContent=Math.floor(e*to)+suf; if(p<1) requestAnimationFrame(step); else el.textContent=to+suf; } requestAnimationFrame(step); }
   var cob = new IntersectionObserver(function(entries,obs){ entries.forEach(function(e){ if(e.isIntersecting){ animateCount(e.target); obs.unobserve(e.target);} }); }, { threshold:0.5 });
