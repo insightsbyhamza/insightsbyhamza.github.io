@@ -58,11 +58,6 @@ img{max-width:100%;display:block}
 @keyframes floatUp{0%{transform:translateY(0);opacity:0}12%{opacity:.55}88%{opacity:.55}100%{transform:translateY(-105vh);opacity:0}}
 
 .progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--mustard),var(--mustard-light));z-index:60;transition:width .1s linear}
-/* cursor trail — a comet tail of dots that follow the mouse */
-.cur-trail{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);
-  background:var(--mustard-light);mix-blend-mode:screen;opacity:0;will-change:left,top,transform}
-body.light .cur-trail{mix-blend-mode:multiply}
-@media(hover:none),(pointer:coarse){.cur-trail{display:none}}
 .nav{position:fixed;top:14px;left:0;right:0;z-index:50;display:flex;justify-content:center;padding:0 1rem}
 .nav-pill{width:100%;max-width:1000px;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem .6rem .55rem 1.4rem;border-radius:100px;background:color-mix(in srgb,var(--black2) 72%,transparent);backdrop-filter:blur(16px);border:1px solid var(--bd)}
 .nav-logo{font-family:'Fraunces',serif;font-weight:800;font-size:1.05rem}
@@ -473,31 +468,6 @@ body.light .tl-dot{border-color:var(--black2)}
 
 <script>
 
-  /* cursor trail — comet tail of dots that follow & fade behind the mouse */
-  (function(){
-    if (window.matchMedia('(hover:none),(pointer:coarse)').matches) return;
-    var N = 18, dots = [], mx = innerWidth/2, my = innerHeight/2, on = false;
-    for (var i=0;i<N;i++){
-      var d = document.createElement('div'); d.className='cur-trail';
-      var s = 13 - (i/N)*9;            // lead dot biggest, tail smallest
-      d.style.width = s+'px'; d.style.height = s+'px';
-      document.body.appendChild(d);
-      dots.push({el:d, x:mx, y:my});
-    }
-    window.addEventListener('mousemove', function(e){ mx=e.clientX; my=e.clientY; on=true; });
-    window.addEventListener('mouseout', function(e){ if(!e.relatedTarget) on=false; });
-    (function loop(){
-      var px = mx, py = my;
-      for (var i=0;i<dots.length;i++){
-        var d = dots[i];
-        d.x += (px - d.x) * 0.35; d.y += (py - d.y) * 0.35;   // each dot chases the one ahead
-        d.el.style.left = d.x+'px'; d.el.style.top = d.y+'px';
-        d.el.style.opacity = on ? String((1 - i/N) * 0.85) : '0';
-        px = d.x; py = d.y;
-      }
-      requestAnimationFrame(loop);
-    })();
-  })();
 
   (function(){
     var t = document.getElementById('themeToggle');
