@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Hamza - Data Analyst &amp; Automation Specialist</title>
+<meta name="description" content="Muhammad Hamza, Data Analyst & Automation Specialist in Islamabad. Power BI dashboards, Python scraping and automation pipelines that run on their own.">
+<meta name="author" content="Muhammad Hamza">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://insightsbyhamza.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Muhammad Hamza - Data Analyst &amp; Automation Specialist">
+<meta property="og:description" content="Beyond the spreadsheet: dashboards, pipelines, and automation that just run.">
+<meta property="og:url" content="https://insightsbyhamza.github.io/">
+<meta property="og:image" content="https://insightsbyhamza.github.io/uploads/dash-hr-overview.png">
+<meta property="og:image:alt" content="HR attrition dashboard built in Power BI by Muhammad Hamza">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="uploads/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="uploads/icon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#0a0e0b">
+<script>
+/* Theme + animation gate, before first paint. */
+(function(){
+  var d=document.documentElement;
+  try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){d.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m&&t==='light'){m.content='#fafbf9';}}}catch(e){}
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){d.classList.add('js-anim');}
+  /* Safety net: if the app script never runs, show everything. */
+  setTimeout(function(){if(!window.__appOk){d.classList.remove('js-anim');}},2500);
+})();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Muhammad Hamza","jobTitle":"Data Analyst & Automation Specialist","email":"m_h2713@yahoo.com","address":{"@type":"PostalAddress","addressLocality":"Islamabad","addressCountry":"PK"},"url":"https://insightsbyhamza.github.io/","sameAs":["https://www.linkedin.com/in/mhamzzaa/","https://github.com/insightsbyhamza"],"knowsAbout":["Power BI","Tableau","Looker Studio","Python","SQL","Selenium","Playwright","BeautifulSoup","Web Scraping","Automation","Apps Script","DeepSeek API","OpenAI Whisper"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400;500;600&family=Mrs+Saint+Delafield&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400;500;600&family=Mrs+Saint+Delafield&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Manrope:wght@400..800&family=JetBrains+Mono:wght@400;500;600&family=Mrs+Saint+Delafield&display=swap"></noscript>
+<link rel="preload" as="image" href="uploads/hamza-circle.webp" fetchpriority="high">
+<link rel="preload" as="image" href="uploads/hamza-portrait.webp">
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0e0b; --bg-2:#0f1511; --bg-3:#151d18;
+  --ink:#eeede6; --ink-2:#b7bbb1; --mute:#858c82;
+  --line:rgba(238,237,230,.10); --line-2:rgba(238,237,230,.22);
+  --green:#6aa84f; --green-2:#7dbd60; --green-deep:#2f5423; --on-green:#06210f;
+  --yellow:#deb92a;
+  --green-rgb:106,168,79;
+  --shadow:0 40px 90px -30px rgba(0,0,0,.75);
+  --nav-h:68px;
+  --gutter:clamp(1.25rem,4vw,4rem);
+  --sec-pad:clamp(3rem,5.5vw,5rem);
+  --r-media:10px; --r-pill:999px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --d-fast:.2s; --d-mid:.45s;
+  --font-display:'Bricolage Grotesque',system-ui,sans-serif;
+  --font-body:'Manrope',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:dark;
+}
+[data-theme=light]{
+  --bg:#fafbf9; --bg-2:#f4f6f3; --bg-3:#eff2ee;
+  --ink:#141a16; --ink-2:#3a423d; --mute:#5e6761;
+  --line:rgba(20,34,26,0.1); --line-2:rgba(20,34,26,0.2);
+  --green:#247a3c; --green-2:#1b6530; --green-deep:#1c4228; --on-green:#ffffff;
+  --yellow:#b97d00;
+  --green-rgb:36,122,60;
+  --shadow:0 40px 90px -30px rgba(20,40,28,0.12);
+  color-scheme:light;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--nav-h) + 1rem);overflow-x:clip}
+@media (prefers-reduced-motion:no-preference){html.no-lenis{scroll-behavior:smooth}}
+html.menu-open{overflow:hidden}
+body{
+  font-family:var(--font-body);background:var(--bg);color:var(--ink);
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip;
+  transition:background-color .5s var(--ease),color .5s var(--ease);
+}
+h1,h2,h3,.display{
+  font-family:var(--font-display);font-variation-settings:"opsz" 96,"wdth" 100;
+  font-weight:700;line-height:.96;letter-spacing:-.035em;text-wrap:balance;
+}
+.dot{color:var(--yellow)}
+.mono{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:500}
+p{max-width:62ch}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--yellow);outline-offset:4px;border-radius:2px}
+::selection{background:var(--green);color:var(--on-green)}
+.container{width:min(100% - 2*var(--gutter),1440px);margin-inline:auto}
+.icon{width:1em;height:1em;flex:none}
+
+.skip{position:fixed;top:-100px;left:1rem;z-index:100;background:var(--yellow);color:#111;padding:.6rem 1rem;border-radius:4px;font-weight:700}
+.skip:focus{top:1rem}
+
+.grain{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media(max-width:700px){.grain{display:none}}
+
+/* Intro curtain: two stage-curtain panels with a greeting, only while animations are on */
+.intro{position:fixed;inset:0;z-index:95;pointer-events:none;display:grid;place-items:center;overflow:hidden}
+html:not(.js-anim) .intro{display:none}
+.intro-panel{
+  position:absolute;top:0;bottom:0;width:50.5%;background:var(--green-deep);will-change:transform;
+  background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.16) 0 3px,transparent 3px 64px),linear-gradient(180deg,rgba(255,255,255,.07),rgba(0,0,0,.28));
+}
+.intro-l{left:0}
+.intro-r{right:0}
+.intro-panel .seam{position:absolute;top:0;bottom:0;width:2px;background:var(--yellow);opacity:0}
+.intro-l .seam{right:0}
+.intro-r .seam{left:0}
+.intro-text{position:relative;z-index:2;text-align:center;padding:0 var(--gutter);color:#eeede6}
+html.js-anim .intro-text{visibility:hidden}
+.intro-avatar{display:block;width:clamp(96px,12vw,150px);aspect-ratio:1;border-radius:50%;overflow:hidden;margin:0 auto 1.4rem;box-shadow:0 0 0 3px var(--yellow),0 0 0 9px rgba(222,185,42,.18),0 24px 50px -20px rgba(0,0,0,.7);will-change:transform}
+.intro-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.intro-hi{display:block;font-family:var(--font-display);font-size:clamp(1.1rem,2vw,1.6rem);font-weight:500;letter-spacing:-.01em;opacity:.8;margin-bottom:.5rem}
+.intro-name{display:block;font-family:var(--font-display);font-size:clamp(2.6rem,7vw,6.5rem);font-weight:700;font-variation-settings:"opsz" 96,"wdth" 100;letter-spacing:-.03em;line-height:1.04}
+.intro-role{display:block;margin-top:1.1rem;font-family:var(--font-mono);font-size:clamp(.66rem,1.1vw,.82rem);letter-spacing:.14em;text-transform:uppercase;color:var(--yellow)}
+.intro-text .w{display:inline-block;overflow:clip;vertical-align:bottom;padding:.06em .04em .14em;margin:-.06em -.04em -.14em}
+.intro-text .w>span{display:inline-block;will-change:transform}
+
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--yellow);transform:scaleX(0);transform-origin:left;z-index:81;pointer-events:none}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:80;height:var(--nav-h);display:flex;align-items:center;
+  border-bottom:1px solid transparent;
+  transition:transform .5s var(--ease),background-color .4s,border-color .4s;
+}
+.nav.is-scrolled{background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav.is-hidden{transform:translateY(-100%)}
+.nav .container{display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.logo{font-family:var(--font-display);font-weight:700;font-size:1.15rem;letter-spacing:-.02em;white-space:nowrap}
+.nav-links{display:flex;gap:1.75rem}
+.nav-links a{position:relative;font-size:.9rem;font-weight:600;color:var(--ink-2);padding:.4rem 0;transition:color var(--d-fast)}
+.nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--yellow);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--ink)}
+.nav-links a:hover::after,.nav-links a[aria-current]::after{transform:scaleX(1);transform-origin:left}
+.nav-right{display:flex;align-items:center;gap:.6rem}
+.icon-btn{width:40px;height:40px;border-radius:var(--r-pill);border:1px solid var(--line-2);display:grid;place-items:center;color:var(--ink);transition:border-color var(--d-fast),transform var(--d-fast) var(--ease)}
+.icon-btn:hover{border-color:var(--ink)}
+.icon-btn:active{transform:scale(.94)}
+.icon-btn svg{width:17px;height:17px}
+.theme-btn .sun{display:none}
+[data-theme=light] .theme-btn .sun{display:block}
+[data-theme=light] .theme-btn .moon{display:none}
+.menu-btn{display:none;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:.6rem .95rem;border:1px solid var(--line-2);border-radius:var(--r-pill);color:var(--ink);transition:border-color var(--d-fast)}
+.menu-btn:hover{border-color:var(--ink)}
+@media(max-width:900px){.nav-links{display:none}.menu-btn{display:inline-flex}}
+
+.menu{
+  position:fixed;inset:0;z-index:85;background:var(--bg);display:flex;flex-direction:column;overflow-y:auto;
+  padding:var(--gutter);visibility:hidden;opacity:0;transition:opacity .4s var(--ease),visibility 0s .4s;
+}
+.menu.is-open{visibility:visible;opacity:1;transition:opacity .4s var(--ease),visibility 0s}
+.menu nav{display:flex;flex-direction:column;margin-block:auto;padding-block:1rem}   /* centred when it fits, scrollable when it does not */
+.menu nav a{
+  font-family:var(--font-display);font-size:clamp(2.4rem,10vw,4.2rem);line-height:1.08;letter-spacing:-.03em;font-weight:700;
+  padding:.3rem 0;display:block;opacity:0;transform:translateY(22px);
+  transition:opacity .5s var(--ease),transform .6s var(--ease);transition-delay:calc(var(--i) * 55ms);
+}
+.menu.is-open nav a{opacity:1;transform:none}
+.menu nav a:hover .dot{color:var(--green)}
+.menu-foot{margin-top:2.5rem;display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;color:var(--mute);font-size:.85rem}
+.menu-close{position:absolute;top:calc((var(--nav-h) - 40px) / 2);right:var(--gutter)}
+
+/* ============================================================
+   BUTTONS & LINKS
+   ============================================================ */
+.mag{display:inline-block;will-change:transform}
+.btn{
+  display:inline-flex;align-items:center;gap:.7rem;padding:1.05rem 1.5rem 1.05rem 1.7rem;border-radius:var(--r-pill);
+  background:var(--green);color:var(--on-green);font-weight:700;font-size:.95rem;line-height:1;white-space:nowrap;
+  transition:transform var(--d-fast) var(--ease),background-color var(--d-fast);
+}
+.btn svg{width:15px;height:15px;transition:transform .4s var(--ease)}
+.btn:hover{background:var(--green-2)}
+.btn:hover svg{transform:translateX(4px)}
+.btn:active{transform:scale(.97)}
+.link{display:inline-flex;align-items:center;gap:.45rem;font-weight:600;color:var(--ink);position:relative;padding-bottom:3px;white-space:nowrap}
+.link::before,.link::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px}
+.link::after{background:var(--line-2)}
+.link::before{background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease);z-index:1}
+.link:hover::before{transform:scaleX(1);transform-origin:left}
+.link svg{width:13px;height:13px;transition:transform .35s var(--ease)}
+.link:hover svg{transform:translate(2px,-2px)}
+.link.dn:hover svg{transform:translateX(3px)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;min-height:100dvh;display:grid;align-items:center;padding:calc(var(--nav-h) + 2.5rem) 0 3rem;overflow-x:clip}
+.hero-sheet{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:72px 72px;background-position:center top;
+  -webkit-mask-image:radial-gradient(ellipse 60% 70% at 78% 35%,#000 0%,transparent 70%);
+  mask-image:radial-gradient(ellipse 60% 70% at 78% 35%,#000 0%,transparent 70%);
+}
+.hero-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:2rem;align-items:center;position:relative;z-index:1}
+.hero-copy{grid-column:1/7;grid-row:1;position:relative;z-index:2}
+.hero-role{margin-bottom:1.2rem;color:var(--green)}
+.hero-title{font-size:clamp(2.8rem,6.9vw,6.6rem);font-weight:700;font-variation-settings:"opsz" 96,"wdth" 100;letter-spacing:-.03em;line-height:1;margin-bottom:.9rem;text-wrap:initial}
+.line{display:block;overflow:clip;padding:.04em .04em .12em;margin:-.04em -.04em -.12em}
+.line>span{display:block;will-change:transform}
+.hero-tag{font-family:var(--font-display);font-size:clamp(1.3rem,2.2vw,1.9rem);font-style:italic;font-weight:500;letter-spacing:-.015em;line-height:1.2;color:var(--green);margin-bottom:1.3rem;max-width:none}
+.hero-sub{font-size:clamp(1rem,1.25vw,1.12rem);color:var(--ink-2);max-width:36ch;margin-bottom:2rem;font-weight:500;line-height:1.55}
+.hero-cta{display:flex;align-items:center;gap:1.9rem;flex-wrap:wrap;margin-bottom:2.2rem}
+.hero-meta{display:grid;gap:.8rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;font-size:.84rem;color:var(--ink-2)}
+.meta-row+.meta-row{padding-top:.8rem;border-top:1px solid var(--line)}
+.meta-row a,.meta-row span{display:inline-flex;align-items:center;gap:.5rem;transition:color var(--d-fast)}
+.meta-row a:hover{color:var(--green)}
+.meta-row svg{width:14px;height:14px;color:var(--green);flex:none}
+
+/* Portrait (placeholder until he decides): green slab, soft edge fade, signature. */
+.hero-photo{grid-column:7/-1;grid-row:1;position:relative;z-index:1;justify-self:end;width:min(100%,500px,calc((100dvh - var(--nav-h) - 9rem) * .8));aspect-ratio:4/5;will-change:transform}
+.photo-panel{position:absolute;right:-7%;top:-6%;width:34%;height:78%;background:linear-gradient(180deg,var(--green-deep),color-mix(in srgb,var(--green-deep) 12%,transparent));border-radius:6px;will-change:transform}
+.photo{position:absolute;inset:0;border-radius:var(--r-media);overflow:hidden;will-change:clip-path,transform}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;filter:saturate(.62) contrast(1.06) brightness(.92)}
+.photo::after{content:'';position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 35%,transparent) 28%,transparent 55%),
+  linear-gradient(0deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 60%,transparent) 16%,transparent 45%),
+  linear-gradient(200deg,rgba(var(--green-rgb),.2),transparent 45%)}
+.sig{position:absolute;right:-.2rem;bottom:2.2rem;z-index:3;font-family:'Mrs Saint Delafield',cursive;font-size:clamp(2rem,3.4vw,3rem);line-height:1;color:var(--green);transform:rotate(-8deg);pointer-events:none;will-change:transform}
+
+html.js-anim .hero-title{visibility:hidden}
+html.js-anim .hero-role,html.js-anim .hero-tag,html.js-anim .hero-sub,html.js-anim .hero-cta,html.js-anim .hero-meta{opacity:0}
+html.js-anim .photo{clip-path:inset(0 0 0 100%)}
+html.js-anim .photo-panel,html.js-anim .sig{opacity:0}
+
+@media(max-width:900px){
+  .hero{padding-top:calc(var(--nav-h) + 1.5rem);min-height:auto}
+  .hero-grid{grid-template-columns:1fr;gap:2.25rem}
+  .hero-copy,.hero-photo{grid-column:1/-1;grid-row:auto}
+  .hero-photo{justify-self:start;width:min(100%,340px)}
+  .photo-panel{right:-5%}
+}
+
+
+/* ============================================================
+   SECTIONS (shared)
+   ============================================================ */
+.sec{padding:var(--sec-pad) 0}
+.sec-title{font-size:clamp(2.4rem,5.6vw,5.2rem);margin-bottom:clamp(1.5rem,4vw,3rem)}
+.sec-sub{font-size:1.05rem;color:var(--ink-2);max-width:52ch;margin:-.5rem 0 clamp(2rem,5vw,4rem)}
+.work .sec-sub,.radar .sec-sub,.autos .sec-sub{max-width:none}   /* section intros read as one line on desktop, wrap naturally on small screens */
+.w{display:inline-block;overflow:clip;vertical-align:bottom;padding:.06em .03em .14em;margin:-.06em -.03em -.14em}
+.w>span{display:inline-block;will-change:transform}
+html.js-anim [data-split]{visibility:hidden}
+html.js-anim [data-rv]{opacity:0}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+/* About backdrop: the tech orbit, pushed back (low opacity, soft blur, radial fade) */
+.about{position:relative;overflow:clip}
+.about>.container{position:relative;z-index:1}
+.about-orbit{
+  --size:min(38vw,520px);
+  position:absolute;z-index:0;right:max(var(--gutter),calc((100vw - 1440px) / 2));top:50%;width:var(--size);aspect-ratio:1;margin-top:calc(var(--size) / -2);
+  pointer-events:none;opacity:.26;filter:blur(.6px) saturate(.75);will-change:transform;
+  -webkit-mask-image:radial-gradient(closest-side,#000 80%,transparent 100%);mask-image:radial-gradient(closest-side,#000 80%,transparent 100%);
+}
+[data-theme=light] .about-orbit{opacity:.22}
+[data-theme=light] .about-orbit .tile-in{background:var(--bg-3);border-color:var(--line-2)}
+.about-orbit .viz{position:absolute;inset:0;container-type:inline-size}
+.about-orbit .viz-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.about-orbit .viz-back{z-index:1}
+.about-orbit .vline{fill:none;stroke:var(--green);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.about-orbit .vline-end{fill:var(--yellow)}
+.about-orbit .ring{fill:none;stroke:var(--line-2);stroke-width:1;stroke-dasharray:3 9}
+.about-orbit .arc{fill:none;stroke:var(--yellow);stroke-width:2.5;stroke-linecap:round;transform-box:view-box;transform-origin:320px 320px;animation:orbit-spin 30s linear infinite reverse}
+@keyframes orbit-spin{to{transform:rotate(360deg)}}
+.about-orbit .disc{position:absolute;left:32.5%;top:32.5%;width:35%;aspect-ratio:1;border-radius:50%;background:rgba(222,185,42,.34);box-shadow:inset 0 0 0 2px rgba(222,185,42,.7);z-index:2;display:grid;place-items:center}
+.about-orbit .box{position:relative;width:56%;aspect-ratio:1;perspective:900px;transform-style:preserve-3d}
+.about-orbit .box-well{position:absolute;inset:0;border-radius:18%;background:#0a0e0b;display:grid;place-items:center;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(238,237,230,.1),inset 0 -1.4cqw 2.6cqw rgba(0,0,0,.65)}
+.about-orbit .box-glow{position:absolute;inset:12%;border-radius:50%;background:radial-gradient(closest-side,rgba(222,185,42,.55),rgba(222,185,42,0))}
+.about-orbit .core-mark{position:relative;width:54%;height:54%;overflow:visible}
+.about-orbit .core-mark rect{fill:#eeede6}
+.about-orbit .core-mark circle{fill:#deb92a}
+.about-orbit .box-lid{position:absolute;inset:0;border-radius:18%;background:linear-gradient(180deg,#2c3b31,#141b17);box-shadow:inset 0 0 0 1px rgba(238,237,230,.16);transform-origin:50% 0%;transform:rotateX(-112deg);display:grid;place-items:center}
+.about-orbit .box-lid-line{width:34%;height:max(.5cqw,3px);border-radius:999px;background:rgba(238,237,230,.22)}
+.about-orbit .spoke{position:absolute;left:0;top:0;width:max(0px,calc(var(--r) - 17.5cqw));height:1px;transform-origin:0 50%;transform:rotate(var(--a)) translateX(17.5cqw);background:linear-gradient(90deg,rgba(var(--green-rgb),.06),rgba(var(--green-rgb),.42))}
+.about-orbit .pulse{position:absolute;left:0;top:0;width:max(1.7cqw,7px);height:max(1.7cqw,7px);border-radius:50%;background:#deb92a;box-shadow:0 0 12px rgba(222,185,42,.75);transform:translate(-50%,-50%) rotate(var(--a)) translateX(var(--d)) rotate(calc(-1 * var(--a)))}
+.about-orbit .orbit-wrap{position:absolute;inset:0;z-index:5}
+.about-orbit .orbit{position:absolute;left:50%;top:50%;width:0;height:0;animation:orbit-spin var(--t) linear infinite var(--dir,normal)}
+.about-orbit .orbit-a{--r:40cqw;--t:80s}
+.about-orbit .orbit-b{--r:27.5cqw;--t:56s;--dir:reverse}
+.about-orbit .tile{position:absolute;left:0;top:0;transform:translate(-50%,-50%) rotate(var(--a)) translateX(var(--r)) rotate(calc(-1 * var(--a)))}
+.about-orbit .tile-in{width:max(8cqw,2.5rem);height:max(8cqw,2.5rem);border-radius:24%;background:#151d18;border:1px solid rgba(238,237,230,.16);display:grid;place-items:center;animation:orbit-spin var(--t) linear infinite reverse}
+.about-orbit .orbit-b .tile-in{animation-direction:normal}
+.about-orbit .tile-in img{width:54%;height:54%;object-fit:contain;display:block}
+.about-orbit .tile-in span{display:none}
+/* Rotation only runs while About is on screen */
+.about-orbit:not(.is-live) .orbit,.about-orbit:not(.is-live) .tile-in,.about-orbit:not(.is-live) .arc{animation-play-state:paused}
+@media(max-width:900px){.about-orbit{--size:min(90vw,420px);right:-28vw;top:0;margin-top:0;opacity:.18}}
+@media(max-width:560px){.about-orbit{display:none}}
+
+.about-grid{display:block}
+.about-copy{min-width:0;max-width:56%}
+.about-copy p{color:var(--ink-2);font-size:clamp(1.08rem,1.3vw,1.24rem);line-height:1.7;margin-bottom:1.1rem;max-width:none;text-align:justify;text-wrap:pretty;hyphens:auto}
+.about-copy p:last-child{margin-bottom:0}
+.about-copy strong{color:var(--ink);font-weight:700}
+@media(max-width:900px){
+  .about-copy{max-width:none}
+  .about-copy p{text-align:left;hyphens:manual}
+}
+
+/* ============================================================
+   SKILLS (bento)
+   ============================================================ */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+.sk{
+  position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;gap:.35rem;min-height:192px;
+  background:var(--bg-3);border:1px solid var(--line);border-radius:var(--r-media);padding:clamp(1rem,1.4vw,1.2rem);
+  transition:border-color .3s,transform .5s var(--ease);
+}
+.sk::before{content:'';position:absolute;left:-20%;right:-20%;bottom:-40%;height:70%;background:radial-gradient(closest-side,rgba(var(--green-rgb),.38),transparent);opacity:0;transition:opacity .5s var(--ease);pointer-events:none;z-index:-1}
+.sk:hover{border-color:var(--line-2);transform:translateY(-4px)}
+.sk:hover::before{opacity:1}
+.sk h3{font-size:clamp(1.25rem,1.8vw,1.6rem);font-weight:600;letter-spacing:-.025em}
+.sk p{color:var(--ink-2);font-size:.88rem;max-width:none}
+.sk-tools{display:flex;flex-wrap:wrap;gap:.6rem .8rem;margin-top:auto;padding-top:.55rem;padding-right:calc(var(--art,0px) + .8rem)}
+.sk-tool{display:flex;flex-direction:column;align-items:center;gap:.4rem;flex:0 0 auto;min-width:3.6rem;max-width:5.8rem;text-align:center;transition:transform .45s var(--ease)}
+.sk-tool i{width:38px;height:38px;border-radius:10px;background:var(--bg);border:1px solid var(--line-2);display:grid;place-items:center;font-style:normal;transition:border-color .3s}
+/* Single-colour light logos (OpenAI) flip to dark on the light theme's pale tiles */
+[data-theme=light] .sk-tool img[src$="whisper.svg"],[data-theme=light] .sk-tool img[src$="mcp.svg"]{filter:invert(1) brightness(.35)}
+.sk-tool i.txt{font-family:var(--font-mono);font-size:.52rem;font-weight:600;letter-spacing:.04em;color:var(--ink)}
+.sk-tool img{width:22px;height:22px;object-fit:contain;display:block}
+.sk-tool > span{font-family:var(--font-body);font-size:.74rem;font-weight:600;letter-spacing:0;color:var(--ink-2);line-height:1.25}
+/* Narrow bottom-row tiles: labels wrap to two lines so the tools stay on one row */
+.sk-c .sk-tools,.sk-e .sk-tools{gap:.6rem .5rem}
+.sk-e .sk-tool{max-width:4rem}
+.sk:hover .sk-tool{transform:translateY(-3px)}
+.sk:hover .sk-tool i{border-color:var(--ink-2)}
+.sk:hover .sk-tool:nth-child(2){transition-delay:.05s}
+.sk:hover .sk-tool:nth-child(3){transition-delay:.1s}
+.sk:hover .sk-tool:nth-child(4){transition-delay:.15s}
+/* Row 1: Data viz + Automation | Row 2: Web scraping, Databases, Programming (equal) | Row 3: AI + Research & monitoring */
+.sk-a{grid-column:1/7}
+.sk-d{grid-column:7/13}
+.sk-c{grid-column:1/5}
+.sk-e{grid-column:5/9}
+.sk-b{grid-column:9/13}
+.sk-f{grid-column:1/7}
+.sk-g{grid-column:7/13}
+/* Top row (5 tools each): one shared 2:1 art box */
+.sk-a,.sk-d{--art:min(28%,180px)}
+.sk-art{position:absolute;right:1.3rem;bottom:1.2rem;width:var(--art);height:auto;aspect-ratio:2/1;opacity:.32;pointer-events:none;z-index:-1;overflow:visible}
+.sk-art .b{fill:var(--green)}
+.sk-art .l{fill:none;stroke:var(--yellow);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.sk-art .vdot{fill:var(--yellow);opacity:0}
+.sk-art{transition:opacity .4s}
+.sk-a:hover .sk-art{opacity:.55}
+.sk-flow{position:absolute;right:1.3rem;bottom:1.2rem;width:var(--art);height:auto;aspect-ratio:2/1;pointer-events:none;z-index:-1;opacity:.75;overflow:visible}
+/* Background art for the other tiles: same placement family, each with its own motion */
+.sk-bg{position:absolute;right:1.3rem;bottom:1.2rem;pointer-events:none;z-index:-1;opacity:.75;overflow:visible;height:auto}
+/* Middle row (Web scraping, Databases, Programming): one shared art box, 84 x 50 */
+.sk-c,.sk-e,.sk-b{--art:min(20%,84px)}
+.sk-scrape,.sk-code,.sk-star{height:auto;aspect-ratio:5/3}
+.sk-scrape{width:var(--art)}
+.sk-scrape .pg{fill:none;stroke:var(--line-2);stroke-width:1.5}
+.sk-scrape .row{fill:var(--green);opacity:.45}
+.sk-scrape .scan{fill:var(--yellow);opacity:0}
+.sk-c:hover .sk-scrape .scan{opacity:1;animation:sk-scan 1.5s linear infinite}
+@keyframes sk-scan{to{transform:translateY(66px)}}
+.sk-code{width:var(--art)}
+.sk-code .tok{fill:var(--ink-2);opacity:.28}
+.sk-code .tok.g{fill:var(--green);opacity:.7}
+.sk-code .tok.y{fill:var(--yellow);opacity:.7}
+.sk-code .caret{fill:var(--yellow);opacity:0}
+.sk-b:hover .sk-code .caret{animation:sk-blink 1s step-end infinite}
+@keyframes sk-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.sk-star{width:var(--art)}
+.sk-star .jn{stroke:var(--line-2);stroke-width:1.5;stroke-dasharray:4 5}
+.sk-star .dim{fill:var(--bg);stroke:var(--green);stroke-width:1.5;opacity:.8;transform-box:fill-box;transform-origin:center}
+.sk-star .fact{fill:var(--bg);stroke:var(--yellow);stroke-width:1.5;transform-box:fill-box;transform-origin:center}
+.sk-star .fk{fill:var(--yellow);opacity:.55}
+.sk-e:hover .sk-star .jn{stroke:var(--green);animation:sk-march .9s linear infinite}
+@keyframes sk-march{to{stroke-dashoffset:-18}}
+.sk-f{--art:min(20%,124px)}
+.sk-wave{width:var(--art)}
+.sk-g{--art:min(17%,104px)}
+.sk-radar{width:var(--art)}
+.sk-radar .rg{fill:none;stroke:var(--line-2);stroke-width:1.5}
+.sk-radar .sweep{fill:var(--green);opacity:.35;transform-box:view-box;transform-origin:50px 50px}
+.sk-radar .blip{fill:var(--yellow)}
+.sk-g:hover .sk-radar .sweep{animation:sk-spin 2.2s linear infinite}
+.sk-g:hover .sk-radar .blip{animation:sk-blip 2.2s ease-out infinite}
+.sk-g:hover .sk-radar .blip:nth-child(7){animation-delay:-.7s}.sk-g:hover .sk-radar .blip:nth-child(8){animation-delay:-1.4s}
+@keyframes sk-spin{to{transform:rotate(360deg)}}
+@keyframes sk-blip{0%{opacity:1}70%{opacity:.25}100%{opacity:1}}
+.sk-wave .wb{fill:var(--green);transform-box:fill-box;transform-origin:center}
+.sk-wave .wb:nth-child(2n){fill:var(--yellow)}
+.sk-f:hover .sk-wave .wb{animation:sk-wave .9s ease-in-out infinite alternate}
+.sk-f:hover .sk-wave .wb:nth-child(2){animation-delay:-.15s}.sk-f:hover .sk-wave .wb:nth-child(3){animation-delay:-.3s}.sk-f:hover .sk-wave .wb:nth-child(4){animation-delay:-.45s}.sk-f:hover .sk-wave .wb:nth-child(5){animation-delay:-.6s}.sk-f:hover .sk-wave .wb:nth-child(6){animation-delay:-.75s}.sk-f:hover .sk-wave .wb:nth-child(7){animation-delay:-.9s}.sk-f:hover .sk-wave .wb:nth-child(8){animation-delay:-1.05s}.sk-f:hover .sk-wave .wb:nth-child(9){animation-delay:-1.2s}
+@keyframes sk-wave{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+.sk-flow path{fill:none;stroke:var(--line-2);stroke-width:1.5;stroke-dasharray:3 6}
+.sk-flow circle{fill:var(--bg);stroke:var(--green);stroke-width:1.5}
+.sk-flow .flow-dot{fill:var(--yellow);stroke:none;opacity:0}
+@media(max-width:1000px){
+  .sk-a{grid-column:1/13;grid-row:auto}
+  .sk-d{grid-column:1/7}.sk-c{grid-column:7/13}
+  .sk-e{grid-column:1/7}.sk-b{grid-column:7/13}
+  .sk-f{grid-column:1/7}.sk-g{grid-column:7/13}
+  .sk-c{--art:min(17%,70px)}
+  .sk-art{bottom:1.5rem;width:min(34%,220px)}
+}
+@media(max-width:600px){
+  .sk-a,.sk-b,.sk-c,.sk-d,.sk-e,.sk-f,.sk-g{grid-column:1/13}
+  .sk{min-height:0}
+  .sk-art,.sk-bg{display:none}
+  .sk{--art:0px}
+}
+
+/* ============================================================
+   EXPERIENCE (career chart)
+   ============================================================ */
+/* Sticky year on the left follows the row being read; rows on the right. */
+.career{display:grid;grid-template-columns:minmax(200px,30%) 1fr;gap:clamp(2rem,4vw,5rem)}
+.year-col{position:sticky;top:calc(var(--nav-h) + 2rem);align-self:start}
+.year{
+  font-family:var(--font-display);font-variation-settings:"opsz" 96,"wdth" 75;
+  font-size:clamp(5rem,11vw,12rem);font-weight:800;letter-spacing:-.03em;line-height:.9;
+  color:var(--yellow);font-variant-numeric:tabular-nums;overflow:hidden;
+}
+.year > span{display:block}
+.year-note{margin-top:.7rem;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.crows{border-top:1px solid var(--line-2)}
+.crow{display:grid;grid-template-columns:minmax(120px,22%) 1fr;gap:1rem 2rem;padding:clamp(1.4rem,2.6vw,2.2rem) 0;border-bottom:1px solid var(--line)}
+.crow .when{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);padding-top:.5rem}
+.crow h3{font-size:clamp(1.3rem,2.2vw,2rem);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+.crow .org{color:var(--green);font-weight:600;font-size:.92rem;margin-top:.25rem}
+.crow p{color:var(--mute);font-size:.9rem;margin-top:.7rem;max-width:56ch}
+@media(max-width:900px){
+  .career{grid-template-columns:1fr;gap:1rem}
+  .year-col{display:none}
+  .crow{grid-template-columns:1fr;gap:.2rem}
+  .crow .when{padding-top:0}
+}
+
+/* ============================================================
+   WORK (showcase: list + preview)
+   ============================================================ */
+.show{display:grid;grid-template-columns:minmax(230px,300px) minmax(0,1fr);gap:clamp(1.5rem,3vw,3rem);align-items:start}
+.pj-list{display:flex;flex-direction:column;gap:.15rem;position:sticky;top:calc(var(--nav-h) + 1.5rem)}
+.pj{
+  display:grid;grid-template-columns:2.2rem 1fr auto auto;align-items:center;gap:.8rem;width:100%;text-align:left;
+  padding:.85rem 1rem .85rem 1.1rem;border-left:2px solid transparent;border-radius:0 10px 10px 0;
+  color:var(--ink-2);font-weight:600;font-size:.98rem;line-height:1.3;
+  transition:color var(--d-fast),border-color var(--d-fast),background-color var(--d-fast);
+}
+.pj .n{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;color:var(--mute);transition:color var(--d-fast)}
+.pj .ar{width:14px;height:14px;color:var(--green);opacity:0;transform:translateX(-6px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.pj:hover{color:var(--ink);background:rgba(var(--green-rgb),.06)}
+.pj.is-active{color:var(--yellow);border-left-color:var(--green);background:rgba(var(--green-rgb),.1)}
+.pj.is-active .n{color:var(--green)}
+.pj.is-active .ar{opacity:1;transform:none}
+/* The panel is only as wide as a 16:9 screenshot that fits the viewport height, so it never letterboxes. */
+.pv{
+  --pv-pad:1rem;width:100%;max-width:calc(min(60vh,560px) * 16 / 9 + 2 * var(--pv-pad) + 2px);justify-self:start;
+  background:var(--bg-3);border:1px solid var(--line);border-radius:var(--r-media);overflow:hidden;box-shadow:var(--shadow);
+}
+.pv-media{padding:var(--pv-pad) var(--pv-pad) 0}
+.pv-frame{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#0b1220;border:1px solid var(--line-2)}
+.pv-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;visibility:hidden;z-index:1;will-change:transform,clip-path}
+.pv-img.is-front{visibility:visible;z-index:2}
+.pv-img.is-back{visibility:visible;z-index:1}
+/* A small label follows the cursor over the preview: "View live" (the frame opens the dashboard) or "Confidential". */
+.pv-frame.is-link{cursor:pointer}
+.pv-cur{position:absolute;left:0;top:0;z-index:3;pointer-events:none}
+.pv-cur > span{
+  display:block;background:var(--green);color:var(--on-green);border-radius:var(--r-pill);
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  padding:.55rem .85rem;white-space:nowrap;transform:translate(-50%,-50%) scale(.6);opacity:0;
+  transition:opacity .25s,transform .45s var(--ease);
+}
+.pv-frame.is-hover.is-link .pv-cur > span{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.pv-tabs{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;align-content:flex-start;padding:.9rem var(--pv-pad) 0;min-height:3.25rem}
+.pv-tabs.is-empty{visibility:hidden}
+.pv-info{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem 2.5rem;padding:1rem var(--pv-pad) 1.4rem;align-items:start}
+.pv-info h3{font-size:clamp(1.4rem,2vw,1.85rem);font-weight:600;letter-spacing:-.02em;margin-bottom:.55rem}
+.pv-info p{color:var(--ink-2);font-size:.95rem;max-width:62ch}
+.pv-side{display:flex;flex-direction:column;align-items:flex-end;gap:.7rem;text-align:right;white-space:nowrap;padding-top:.35rem}
+.pv-side .mono{color:var(--ink-2)}
+.pv-side [hidden]{display:none}
+.pv-built{font-size:.85rem;color:var(--ink-2)}
+.pv-built .mono{margin-right:.5rem}
+.badge{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.badge svg{width:12px;height:12px}
+.tab{font-family:var(--font-body);font-size:.82rem;font-weight:600;letter-spacing:.01em;padding:.5rem .95rem;border-radius:var(--r-pill);border:1px solid color-mix(in srgb,var(--ink) 28%,transparent);color:var(--ink);background:color-mix(in srgb,var(--ink) 5%,transparent);transition:background-color var(--d-fast),color var(--d-fast),border-color var(--d-fast)}
+.tab:hover{border-color:var(--ink);color:var(--ink)}
+.tab.is-active{background:var(--green);color:var(--on-green);border-color:var(--green)}
+/* Highlight tags for single-page dashboards: same pill as the page tabs, just not clickable */
+/* Row label tells the two apart: "Pages" = clickable pills, "Highlights" = plain marked labels */
+.pv-rowlabel{font-size:.68rem;letter-spacing:.14em;color:var(--mute);margin-right:.5rem;white-space:nowrap}
+.ptag{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-body);font-size:.82rem;font-weight:500;color:var(--ink-2);padding:.5rem .45rem;white-space:nowrap;line-height:1.5}
+.ptag::before{content:'';width:6px;height:6px;border-radius:2px;background:var(--yellow);flex:none}
+@media(max-width:1000px){
+  .show{grid-template-columns:1fr;gap:1rem}
+  .pj-list{position:static;flex-direction:row;overflow-x:auto;gap:.45rem;padding-bottom:.6rem;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 92%,transparent);mask-image:linear-gradient(90deg,#000 92%,transparent)}
+  .pj-list::-webkit-scrollbar{display:none}
+  .pj{grid-template-columns:auto 1fr auto;gap:.5rem;width:auto;flex:none;padding:.55rem .95rem;border:1px solid var(--line-2);border-radius:var(--r-pill);white-space:nowrap;font-size:.88rem}
+  .pj .ar{display:none}
+  .pj.is-active{border-color:var(--green);background:rgba(var(--green-rgb),.12)}
+  .pv{--pv-pad:.7rem;max-width:none}
+  .pv-info{grid-template-columns:1fr;gap:1rem;padding-bottom:1.2rem}
+  .pv-side{flex-direction:row;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem;text-align:left;white-space:normal;padding-top:0}
+}
+
+/* ============================================================
+   SIDE PROJECT (Price Radar spotlight)
+   ============================================================ */
+.rd-eyebrow{display:block;color:var(--green);margin-bottom:1rem}
+.rd-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(2rem,4.5vw,5rem);align-items:center}
+.rd-copy h3{font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:600;letter-spacing:-.03em;line-height:1.02}
+.rd-kicker{display:block;color:var(--ink-2);margin:.7rem 0 1.6rem}
+.rd-rows{list-style:none;margin:0 0 1.8rem;padding:0;border-bottom:1px solid var(--line)}
+.rd-rows li{display:grid;grid-template-columns:7.2rem minmax(0,1fr);gap:1rem;align-items:baseline;padding:1rem 0;border-top:1px solid var(--line)}
+.rd-rows .mono{color:var(--green)}
+.rd-rows p{color:var(--ink-2);font-size:.98rem;line-height:1.55}
+.rd-rows strong{color:var(--ink);font-weight:700}
+.rd-num{font-variant-numeric:tabular-nums}
+.rd-foot{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 2rem}
+.rd-built{font-size:.85rem;color:var(--ink-2)}
+.rd-built .mono{margin-right:.5rem}
+.rd-media{background:var(--bg-3);border:1px solid var(--line);border-radius:var(--r-media);padding:1rem;box-shadow:var(--shadow)}
+.rd-frame{position:relative;display:block;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#0b1220;border:1px solid var(--line-2);cursor:pointer}
+.rd-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;visibility:hidden;z-index:1;will-change:transform,clip-path}
+.rd-img.is-front{visibility:visible;z-index:2}
+.rd-img.is-back{visibility:visible;z-index:1}
+.rd-cur{position:absolute;left:0;top:0;z-index:3;pointer-events:none}
+.rd-cur > span{
+  display:block;background:var(--green);color:var(--on-green);border-radius:var(--r-pill);
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  padding:.55rem .85rem;white-space:nowrap;transform:translate(-50%,-50%) scale(.6);opacity:0;
+  transition:opacity .25s,transform .45s var(--ease);
+}
+.rd-frame.is-hover .rd-cur > span{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.rd-tabs{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;padding-top:.9rem}
+.rd-rowlabel{font-size:.68rem;letter-spacing:.14em;color:var(--mute);margin-right:.5rem;white-space:nowrap}
+.rd-note{font-size:.78rem;color:var(--mute);margin-top:.75rem}
+@media(max-width:1000px){.rd-grid{grid-template-columns:1fr}.rd-media{order:-1}}
+@media(max-width:600px){.rd-rows li{grid-template-columns:1fr;gap:.3rem}}
+
+/* ============================================================
+   AUTOMATIONS (card stack)
+   ============================================================ */
+.stack{display:grid;gap:1.5rem}
+.card{
+  position:sticky;top:calc(var(--nav-h) + 1.5rem);
+  background:var(--bg-3);border:1px solid var(--line);border-radius:var(--r-media);padding:clamp(1.5rem,3vw,2.75rem);
+  display:grid;grid-template-columns:3.5rem 1fr auto;gap:2rem;align-items:start;
+  transform-origin:top center;will-change:transform;box-shadow:var(--shadow);
+}
+.card::after{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--bg);opacity:var(--dim,0);pointer-events:none}
+.card .n{font-family:var(--font-mono);font-size:.74rem;color:var(--mute);padding-top:.5rem}
+.card h3{font-size:clamp(1.5rem,2.6vw,2.3rem);font-weight:600;letter-spacing:-.025em;margin-bottom:.6rem}
+.card .tools{font-size:.86rem;color:var(--green);font-weight:600;margin-bottom:1.1rem}
+.card p{color:var(--ink-2);font-size:1rem}
+.card .out{text-align:right;min-width:9rem;align-self:start;padding-top:.2rem}
+.card .out b{display:block;font-family:var(--font-display);font-size:clamp(2.4rem,4.5vw,4.2rem);line-height:1;letter-spacing:-.045em;color:var(--yellow);font-weight:700;white-space:nowrap}
+.card .out b.sm{font-size:clamp(1.6rem,2.6vw,2.4rem)}
+.card .out span{display:block;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-top:.6rem}
+@media(max-width:700px){
+  .card{position:relative;top:auto!important;grid-template-columns:1fr;min-height:0;gap:.7rem;box-shadow:none}
+  .card .n{padding-top:0}
+  .card .out{grid-column:1;text-align:left;min-width:0;margin-top:.4rem}
+}
+
+/* ============================================================
+   IMPACT (numbers that matter)
+   ============================================================ */
+.impact{border-top:1px solid var(--line)}
+.impact-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:2.5rem 4rem;align-items:center}
+.impact .sec-title{margin-bottom:0}
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.8rem 2rem}
+.num b{display:block;font-family:var(--font-display);font-size:clamp(2.4rem,3.6vw,3.6rem);font-weight:700;line-height:1;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.num b em{font-style:normal;color:var(--yellow)}
+.num strong{display:block;font-weight:700;font-size:.98rem;margin-top:.8rem;color:var(--ink)}
+.num > span{display:block;font-size:.84rem;color:var(--mute);margin-top:.2rem}
+@media(max-width:1200px){.impact-grid{grid-template-columns:1fr;gap:2rem}}
+@media(max-width:560px){.nums{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.8rem 1.4rem}}
+
+/* ============================================================
+   CONTACT & FOOTER
+   ============================================================ */
+.contact{position:relative;padding:var(--sec-pad) 0 clamp(4.5rem,8vw,7rem);border-top:1px solid var(--line);overflow:clip}
+.cta-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(2.5rem,5vw,5rem);align-items:stretch}
+.cta-copy{align-self:center}
+.terrain{position:relative;display:flex;flex-direction:column;padding:clamp(1.5rem,2.6vw,2.4rem);border-radius:var(--r-media);overflow:hidden;border:1px solid var(--line);
+  background:radial-gradient(90% 75% at 28% 92%,color-mix(in srgb,var(--green) 16%,var(--bg-3)),var(--bg) 72%)}
+.terrain svg{position:absolute;inset:0;width:100%;height:100%;will-change:transform}
+.terrain .c{fill:none;stroke:var(--green);stroke-width:1.2;opacity:.24;vector-effect:non-scaling-stroke}
+.next{position:relative;z-index:1;display:flex;flex-direction:column;height:100%}
+.next-h{color:var(--green);margin-bottom:auto;padding-bottom:1.8rem}
+.next-list{list-style:none;display:grid;gap:1.3rem}
+.next-list li{display:grid;grid-template-columns:2.6rem minmax(0,1fr);gap:.9rem;align-items:start;padding-top:1.1rem;border-top:1px solid var(--line-2)}
+.next-list b{font-family:var(--font-mono);font-size:.78rem;font-weight:600;color:var(--yellow);padding-top:.15rem}
+.next-list strong{display:block;font-family:var(--font-display);font-size:clamp(1.05rem,1.4vw,1.25rem);font-weight:600;letter-spacing:-.015em;color:var(--ink);margin-bottom:.25rem}
+.next-list span{display:block;font-size:.9rem;color:var(--ink-2);line-height:1.5}
+.terrain .plus{position:absolute;right:1.3rem;top:1rem;font-family:var(--font-display);font-size:2rem;font-weight:300;line-height:1;color:var(--yellow)}
+.cta-eyebrow{display:block;color:var(--green);margin-bottom:1rem}
+.contact h2{font-size:clamp(2.4rem,4.6vw,4.4rem);margin-bottom:1.3rem}
+.contact .sub{font-size:clamp(1.02rem,1.3vw,1.18rem);color:var(--ink-2);max-width:44ch;margin-bottom:1.8rem}
+.email{
+  font-family:var(--font-display);font-size:clamp(1.3rem,2.3vw,2rem);font-weight:600;letter-spacing:-.025em;display:inline-block;margin-bottom:1.9rem;
+  padding-bottom:.1em;background:linear-gradient(var(--green),var(--green)) no-repeat left bottom / 0 3px;transition:background-size .55s var(--ease);
+}
+.email:hover{background-size:100% 3px}
+.contact-row{display:flex;flex-wrap:wrap;gap:1.25rem 2.2rem;align-items:center}
+@media(max-width:900px){.cta-grid{grid-template-columns:1fr}.terrain{order:2}.next-h{margin-bottom:0}}
+.foot{border-top:1px solid var(--line);padding:2rem 0}
+.foot .container{display:flex;justify-content:space-between;gap:1rem 2rem;flex-wrap:wrap;font-size:.86rem;color:var(--mute);align-items:center}
+.foot .logo{color:var(--ink)}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  .step{opacity:1}
+}
+/* ---------- Audit fixes (Sep 2026): a11y, touch, small layout corrections ---------- */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.theme-snap *,.theme-snap *::before,.theme-snap *::after{transition:none!important}
+html.intro-lock{overflow:hidden}
+.pj-live{font-family:var(--font-mono);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--green);border:1px solid rgba(var(--green-rgb),.5);border-radius:var(--r-pill);padding:.2rem .5rem;line-height:1;white-space:nowrap}
+.menu-btn{align-items:center;justify-content:center;line-height:1}
+.crow .when{white-space:nowrap}
+.rd-num{display:inline-block;min-width:5ch;font-variant-numeric:tabular-nums}
+.rd-media{max-width:calc(min(60vh,560px) * 16 / 9 + 2rem)}
+.pj:focus-visible,.tab:focus-visible{outline-offset:-3px}
+@media (hover:none){.sk:hover{transform:none;border-color:var(--line)}}
+@media (min-width:1001px) and (max-width:1340px){.sk-tool{min-width:3.2rem;max-width:4.6rem}.sk-tools{gap:.6rem .55rem}}
+@media (min-width:1100px) and (max-width:1320px){.num strong{font-size:.9rem}}
+@media (min-width:701px) and (max-height:640px){.card{position:relative;top:auto!important}}
+@media (forced-colors:active){
+  .tab.is-active,.pj.is-active{outline:3px solid CanvasText;outline-offset:2px}
+  .pj-live{border:1px solid CanvasText}
+}
+/* ---------- Touch + small screens: 44px tap targets, 12px text floor (desktop with a mouse is unchanged) ---------- */
+@media (max-width:1024px), (pointer:coarse){
+  .icon-btn{width:44px;height:44px}
+  .menu-btn{min-height:44px}
+  .tab{min-height:44px}
+  .nav-links a{padding-block:.7rem}
+  /* bigger hit areas without moving anything: padding grows the target, the same negative margin gives the space back */
+  .logo{padding-block:.55rem;margin-block:-.55rem}
+  .meta-row a{padding-block:.75rem;margin-block:-.75rem}
+  .link{padding-block:.75rem calc(.75rem + 3px);margin-block:-.75rem}
+  .link::before,.link::after{bottom:.75rem}
+  .email{padding-top:.65rem;margin-top:-.65rem}
+}
+@media (max-width:1024px){ .pj{min-height:44px} }
+@media (max-width:1024px){
+  .mono,.menu-btn,.intro-role,.year-note,.crow .when,.pj .n,.card .n,.card .out span,.badge,.pv-rowlabel,.rd-rowlabel,.sk-tool > span,.pj-live{font-size:.72rem}
+}
+/* light-only readability fixes */
+[data-theme=light] .pj.is-active{color:var(--ink)}
+[data-theme=light] .next-list b{color:var(--green-2)}
+[data-theme=light] .pj.is-active .n{color:var(--green-2)}
+[data-theme=light] .pj-live{color:var(--green-2)}
+[data-theme=light] .pv-frame,[data-theme=light] .rd-frame{background:#dfe4e2}
+[data-theme=light] .card{box-shadow:0 24px 60px -32px rgba(20,40,28,.16)}
+[data-theme=light] .sk-tool i{background:#e9ede8}
+[data-theme=light] .sk-art{opacity:.55}
+[data-theme=light] .sk-a:hover .sk-art{opacity:.75}
+[data-theme=light] .about-orbit .box-well{background:var(--bg-3);box-shadow:inset 0 0 0 1px var(--line-2)}
+[data-theme=light] .about-orbit .core-mark rect{fill:var(--ink)}
+[data-theme=light] .about-orbit .box-lid{background:linear-gradient(180deg,#dfe7e1,#c7d3ca);box-shadow:inset 0 0 0 1px var(--line-2)}
+[data-theme=light] .terrain{background:radial-gradient(90% 75% at 28% 92%,color-mix(in srgb,var(--green) 9%,var(--bg-3)),var(--bg-3) 72%)}
+.intro-role{color:#deb92a}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-panel intro-l"><span class="seam"></span></div>
+  <div class="intro-panel intro-r"><span class="seam"></span></div>
+  <div class="intro-text">
+    <span class="intro-avatar"><img src="uploads/hamza-circle.webp" alt="" width="320" height="320" fetchpriority="high"></span>
+    <span class="intro-hi"><span class="w"><span>Hi,</span></span> <span class="w"><span>I</span></span> <span class="w"><span>am</span></span></span>
+    <span class="intro-name"><span class="w"><span>Muhammad</span></span> <span class="w"><span>Hamza<span class="dot">.</span></span></span></span>
+    <span class="intro-role"><span class="w"><span>Data Analyst &amp; Automation Specialist</span></span></span>
+  </div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="container">
+    <a href="#top" class="logo" aria-label="Muhammad Hamza, back to top">Muhammad Hamza<span class="dot">.</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#exp">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#autos">Automations</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn theme-btn" data-theme-toggle aria-label="Toggle light and dark theme">
+        <svg class="moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M13.6 9.8A6 6 0 0 1 6.2 2.4a6 6 0 1 0 7.4 7.4z"/></svg>
+        <svg class="sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="3"/><path d="M8 1.5v1.6M8 12.9v1.6M1.5 8h1.6M12.9 8h1.6M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M3.4 12.6l1.1-1.1M11.5 4.5l1.1-1.1"/></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <button class="icon-btn menu-close" id="menuClose" aria-label="Close menu"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 3l10 10M13 3 3 13"/></svg></button>
+  <nav aria-label="Mobile">
+    <a href="#about" style="--i:0">About<span class="dot">.</span></a>
+    <a href="#skills" style="--i:1">Skills<span class="dot">.</span></a>
+    <a href="#exp" style="--i:2">Experience<span class="dot">.</span></a>
+    <a href="#work" style="--i:3">Work<span class="dot">.</span></a>
+    <a href="#autos" style="--i:4">Automations<span class="dot">.</span></a>
+    <a href="#contact" style="--i:5">Contact<span class="dot">.</span></a>
+  </nav>
+  <div class="menu-foot">
+    <a class="link" href="mailto:m_h2713@yahoo.com">m_h2713@yahoo.com</a>
+    <a class="link" href="https://www.linkedin.com/in/mhamzzaa/" target="_blank" rel="noopener noreferrer">LinkedIn <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div class="hero-sheet" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-role mono">Data Analyst &amp; Automation Specialist</div>
+          <h1 class="hero-title">
+            <span class="line"><span>Muhammad</span></span>
+            <span class="line"><span>Hamza<span class="dot">.</span></span></span>
+          </h1>
+          <p class="hero-tag">Beyond the spreadsheet.</p>
+          <p class="hero-sub">Turning raw data into insights, automating the boring, and building systems that scale.</p>
+          <div class="hero-cta">
+            <span class="mag" data-magnet><a href="#work" class="btn"><span>See the work</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a></span>
+            <a href="uploads/Resume.pdf" class="link" target="_blank" rel="noopener">Resume <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+          </div>
+          <div class="hero-meta">
+            <div class="meta-row">
+              <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 14.5s-4.5-4.2-4.5-7.8a4.5 4.5 0 0 1 9 0c0 3.6-4.5 7.8-4.5 7.8z"/><circle cx="8" cy="6.7" r="1.6"/></svg>Islamabad, Pakistan</span>
+              <a href="mailto:m_h2713@yahoo.com"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg>m_h2713@yahoo.com</a>
+              <a href="https://www.linkedin.com/in/mhamzzaa/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5.2 7v4M5.2 5v.1M8 11V8.7c0-1 .7-1.7 1.6-1.7S11 7.7 11 8.7V11"/></svg>linkedin.com/in/mhamzzaa</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-photo" aria-hidden="true">
+          <div class="photo-panel" data-depth="10"></div>
+          <div class="photo" data-depth="18"><img src="uploads/hamza-portrait.webp" alt="" width="800" height="1000" fetchpriority="high"></div>
+          <span class="sig" data-depth="28">Hamza</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="sec about" id="about">
+    <div class="about-orbit" aria-hidden="true">
+      <div class="viz">
+        <svg class="viz-svg viz-back" viewBox="0 0 640 640">
+          <path class="vline" d="M20 604 C 120 600, 160 470, 236 468 S 352 300, 424 246 S 560 112, 622 56"/>
+          <circle class="vline-end" cx="622" cy="56" r="6"/>
+          <circle class="ring" cx="320" cy="320" r="256"/>
+          <circle class="ring" cx="320" cy="320" r="176"/>
+          <path class="arc" d="M320 64 A 256 256 0 0 1 576 320"/>
+        </svg>
+        <div class="disc">
+          <div class="box">
+            <div class="box-well">
+              <span class="box-glow"></span>
+              <svg class="core-mark" viewBox="0 0 100 100" aria-hidden="true">
+                <rect x="14" y="68" width="12" height="18" rx="3"/>
+                <rect x="32" y="56" width="12" height="30" rx="3"/>
+                <rect x="50" y="42" width="12" height="44" rx="3"/>
+                <rect x="68" y="28" width="12" height="58" rx="3"/>
+                <circle cx="88" cy="16" r="7"/>
+              </svg>
+            </div>
+            <div class="box-lid"><span class="box-lid-line"></span></div>
+          </div>
+        </div>
+        <div class="orbit-wrap">
+          <div class="orbit orbit-a">
+            <span class="spoke" style="--a:0deg"></span><span class="spoke" style="--a:51.4deg"></span><span class="spoke" style="--a:102.8deg"></span><span class="spoke" style="--a:154.3deg"></span><span class="spoke" style="--a:205.7deg"></span><span class="spoke" style="--a:257.1deg"></span><span class="spoke" style="--a:308.6deg"></span>
+            <div class="tile" style="--a:0deg"><div class="tile-pop"><div class="tile-in"><img src="uploads/logos/powerbi.svg" alt="" width="40" height="40" loading="lazy"><span>Power BI</span></div></div></div>
+            <div class="tile" style="--a:51.4deg"><div class="tile-pop"><div class="tile-in"><img src="uploads/logos/looker.svg" alt="" width="40" height="40" loading="lazy"><span>Looker Studio</span></div></div></div>
+            <div class="tile" style="--a:102.8deg"><div class="tile-pop"><div class="tile-in"><img src="uploads/logos/sqlserver.svg" alt="" width="40" height="40" loading="lazy"><span>SQL Server</span></div></div></div>
+            <div class="tile" style="--a:154.3deg"><div class="tile-pop"><div class="tile-in"><img src="uploads/logos/playwright.svg" alt="" width="40" height="40" loading="lazy"><span>Playwright</span></div></div></div>
+            <div class="tile" style="--a:205.7deg"><div class="tile-pop"><div class="tile-in"><img src="uploads/logos/apacheairflow.svg" alt="" width="40" height="40" loading="lazy"><span>Airflow</span></div></div></div>
+            <div class="tile" style="--a:257.1deg"><div class="tile-pop"><div class="tile-in"><img src="uploads/logos/n8n.svg" alt="" width="40" height="40" loading="lazy"><span>n8n</span></div></div></div>
+            <div class="tile" style="--a:308.6deg"><div class="tile-pop"><div class="tile-in"><img src="uploads/logos/zapier.svg" alt="" width="40" height="40" loading="lazy"><span>Zapier</span></div></div></div>
+          </div>
+        </div>
+        <div class="orbit-wrap">
+          <div class="orbit orbit-b">
+            <span class="spoke" style="--a:36deg"></span><span class="spoke" style="--a:108deg"></span><span class="spoke" style="--a:180deg"></span><span class="spoke" style="--a:252deg"></span><span class="spoke" style="--a:324deg"></span>
+            <div class="tile" style="--a:36deg"><div class="tile-pop"><div class="tile-in"><img src="uploads/logos/python.svg" alt="" width="40" height="40" loading="lazy"><span>Python</span></div></div></div>
+            <div class="tile" style="--a:108deg"><div class="tile-pop"><div class="tile-in"><img src="uploads/logos/mysql.svg" alt="" width="40" height="40" loading="lazy"><span>MySQL</span></div></div></div>
+            <div class="tile" style="--a:180deg"><div class="tile-pop"><div class="tile-in"><img src="uploads/logos/selenium.svg" alt="" width="40" height="40" loading="lazy"><span>Selenium</span></div></div></div>
+            <div class="tile" style="--a:252deg"><div class="tile-pop"><div class="tile-in"><img src="uploads/logos/googleappsscript.svg" alt="" width="40" height="40" loading="lazy"><span>Apps Script</span></div></div></div>
+            <div class="tile" style="--a:324deg"><div class="tile-pop"><div class="tile-in"><img src="uploads/logos/deepseek.svg" alt="" width="40" height="40" loading="lazy"><span>DeepSeek API</span></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h2 class="sec-title" data-split>About me<span class="dot">.</span></h2>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p data-rv>I'm a <strong>Data Analyst and Automation Specialist</strong>. I turn messy, scattered data into dashboards people trust, and repetitive reporting into systems that run themselves.</p>
+          <p data-rv data-rv-delay=".08">My work covers the full path from raw source to decision: Python scrapers and ETL pipelines that collect and clean the data, SQL and MySQL to model it, and Power BI dashboards that decision-makers can read at a glance.</p>
+          <p data-rv data-rv-delay=".16">Increasingly, that work includes AI. I use LLMs for sentiment analysis at scale, Whisper to turn audio into searchable text, and MCP servers that connect language models to live sources such as the YouTube API.</p>
+          <p data-rv data-rv-delay=".24">I work best with teams that have more data than time. The goal is always the same: fewer manual steps, faster answers, and systems that keep running long after handover.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="sec skills" id="skills">
+    <div class="container">
+      <h2 class="sec-title" data-split>Skills &amp; stack<span class="dot">.</span></h2>
+      <div class="bento">
+        <article class="sk sk-a" data-rv>
+          <h3>Data visualization</h3>
+          <p>Dashboards built to be read in a meeting, not decoded.</p>
+          <div class="sk-tools"><span class="sk-tool"><i><img src="uploads/logos/powerbi.svg" alt="" width="26" height="26" loading="lazy"></i><span>Power BI</span></span><span class="sk-tool"><i><img src="uploads/logos/tableau.svg" alt="" width="26" height="26" loading="lazy"></i><span>Tableau</span></span><span class="sk-tool"><i><img src="uploads/logos/looker.svg" alt="" width="26" height="26" loading="lazy"></i><span>Looker Studio</span></span><span class="sk-tool"><i><img src="uploads/logos/qlik.svg" alt="" width="26" height="26" loading="lazy"></i><span>Qlik Sense</span></span><span class="sk-tool"><i><img src="uploads/logos/excel.svg" alt="" width="26" height="26" loading="lazy"></i><span>Excel</span></span></div>
+          <svg class="sk-art" viewBox="0 0 280 140" aria-hidden="true">
+            <rect class="b" x="9.6" y="96" width="36" height="44" rx="4" opacity=".45"/>
+            <rect class="b" x="67.2" y="70" width="36" height="70" rx="4" opacity=".6"/>
+            <rect class="b" x="124.8" y="84" width="36" height="56" rx="4" opacity=".5"/>
+            <rect class="b" x="182.4" y="40" width="36" height="100" rx="4" opacity=".8"/>
+            <rect class="b" x="240" y="14" width="36" height="126" rx="4"/>
+            <path class="l" d="M27.6 78 C 60 74, 72 52, 85.2 50 S 132 66, 142.8 60 S 192 20, 200.4 22 S 246 6, 258 4"/>
+          </svg>
+        </article>
+        <article class="sk sk-d" data-rv data-rv-delay="0.06">
+          <h3>Automation</h3>
+          <p>Forms, sheets, PDFs and WhatsApp, wired so Monday runs itself.</p>
+          <div class="sk-tools"><span class="sk-tool"><i><img src="uploads/logos/googleappsscript.svg" alt="" width="26" height="26" loading="lazy"></i><span>Apps Script</span></span><span class="sk-tool"><i><img src="uploads/logos/apacheairflow.svg" alt="" width="26" height="26" loading="lazy"></i><span>Airflow</span></span><span class="sk-tool"><i><img src="uploads/logos/n8n.svg" alt="" width="26" height="26" loading="lazy"></i><span>n8n</span></span><span class="sk-tool"><i><img src="uploads/logos/zapier.svg" alt="" width="26" height="26" loading="lazy"></i><span>Zapier</span></span><span class="sk-tool"><i><img src="uploads/logos/landbot.svg" alt="" width="26" height="26" loading="lazy"></i><span>Landbot</span></span></div>
+          <svg class="sk-flow" viewBox="0 0 240 120" aria-hidden="true">
+            <path d="M8 112 C 46 112, 46 8, 84 8 S 122 112, 160 112 S 196 8, 232 8"/>
+            <circle cx="8" cy="112" r="5"/><circle cx="84" cy="8" r="5"/><circle cx="160" cy="112" r="5"/><circle cx="232" cy="8" r="5"/>
+            <circle class="flow-dot" cx="8" cy="112" r="4"/>
+          </svg>
+        </article>
+        <article class="sk sk-c" data-rv data-rv-delay="0.12">
+          <h3>Web scraping</h3>
+          <p>Site-aware crawlers that survive pagination, logins and layout changes.</p>
+          <div class="sk-tools"><span class="sk-tool"><i><img src="uploads/logos/selenium.svg" alt="" width="26" height="26" loading="lazy"></i><span>Selenium</span></span><span class="sk-tool"><i><img src="uploads/logos/playwright.svg" alt="" width="26" height="26" loading="lazy"></i><span>Playwright</span></span><span class="sk-tool"><i class="txt">BS4</i><span>BeautifulSoup</span></span><span class="sk-tool"><i><img src="uploads/logos/pandas.svg" alt="" width="26" height="26" loading="lazy"></i><span>Pandas</span></span></div>
+          <svg class="sk-bg sk-scrape" viewBox="0 0 200 120" aria-hidden="true">
+            <rect class="pg" x="1" y="1" width="198" height="118" rx="8"/>
+            <rect class="row" x="18" y="22" width="120" height="7" rx="3.5"/>
+            <rect class="row" x="18" y="42" width="150" height="7" rx="3.5"/>
+            <rect class="row" x="18" y="62" width="92" height="7" rx="3.5"/>
+            <rect class="row" x="18" y="82" width="140" height="7" rx="3.5"/>
+            <rect class="row" x="18" y="102" width="70" height="7" rx="3.5"/>
+            <rect class="scan" x="10" y="16" width="180" height="2" rx="1"/>
+          </svg>
+        </article>
+        <article class="sk sk-e" data-rv data-rv-delay="0.18">
+          <h3>Databases</h3>
+          <p>Well-structured, clean tables that every report and dashboard can rely on.</p>
+          <div class="sk-tools"><span class="sk-tool"><i><img src="uploads/logos/mysql.svg" alt="" width="26" height="26" loading="lazy"></i><span>MySQL</span></span><span class="sk-tool"><i><img src="uploads/logos/msaccess.svg" alt="" width="26" height="26" loading="lazy"></i><span>MS Access</span></span></div>
+          <svg class="sk-bg sk-star" viewBox="0 0 200 120" aria-hidden="true">
+            <line class="jn" x1="100" y1="60" x2="30" y2="16"/>
+            <line class="jn" x1="100" y1="60" x2="170" y2="16"/>
+            <line class="jn" x1="100" y1="60" x2="30" y2="104"/>
+            <line class="jn" x1="100" y1="60" x2="170" y2="104"/>
+            <rect class="dim" x="5" y="4" width="50" height="24" rx="4"/>
+            <rect class="dim" x="145" y="4" width="50" height="24" rx="4"/>
+            <rect class="dim" x="5" y="92" width="50" height="24" rx="4"/>
+            <rect class="dim" x="145" y="92" width="50" height="24" rx="4"/>
+            <rect class="fact" x="67.5" y="42" width="65" height="36" rx="5"/>
+            <rect class="fk" x="76.25" y="50" width="47.5" height="4" rx="2"/>
+            <rect class="fk" x="76.25" y="58" width="32.5" height="4" rx="2"/>
+            <rect class="fk" x="76.25" y="66" width="40" height="4" rx="2"/>
+          </svg>
+        </article>
+        <article class="sk sk-b" data-rv data-rv-delay="0.24">
+          <h3>Programming</h3>
+          <p>Python for pipelines and scrapers, SQL for everything in between.</p>
+          <div class="sk-tools"><span class="sk-tool"><i><img src="uploads/logos/python.svg" alt="" width="26" height="26" loading="lazy"></i><span>Python</span></span><span class="sk-tool"><i><img src="uploads/logos/sql.svg" alt="" width="26" height="26" loading="lazy"></i><span>SQL</span></span></div>
+          <svg class="sk-bg sk-code" viewBox="3 8 170 102" aria-hidden="true">
+            <rect class="tok g" x="6" y="10" width="38" height="8" rx="4"/><rect class="tok" x="52" y="10" width="72" height="8" rx="4"/>
+            <rect class="tok" x="22" y="32" width="30" height="8" rx="4"/><rect class="tok y" x="60" y="32" width="54" height="8" rx="4"/><rect class="tok" x="122" y="32" width="40" height="8" rx="4"/>
+            <rect class="tok" x="22" y="54" width="84" height="8" rx="4"/><rect class="tok g" x="114" y="54" width="30" height="8" rx="4"/>
+            <rect class="tok y" x="22" y="76" width="44" height="8" rx="4"/><rect class="tok" x="74" y="76" width="96" height="8" rx="4"/>
+            <rect class="tok g" x="6" y="98" width="56" height="8" rx="4"/>
+            <rect class="caret" x="68" y="96" width="3" height="12" rx="1"/>
+          </svg>
+        </article>
+        <article class="sk sk-f" data-rv data-rv-delay="0.30">
+          <h3>AI</h3>
+          <p>Sentiment tagging, speech-to-text, and MCP servers that connect LLMs to live data.</p>
+          <div class="sk-tools"><span class="sk-tool"><i><img src="uploads/logos/deepseek.svg" alt="" width="26" height="26" loading="lazy"></i><span>DeepSeek API</span></span><span class="sk-tool"><i><img src="uploads/logos/whisper.svg" alt="" width="26" height="26" loading="lazy"></i><span>OpenAI Whisper</span></span><span class="sk-tool"><i><img src="uploads/logos/mcp.svg" alt="" width="26" height="26" loading="lazy"></i><span>MCP Servers</span></span></div>
+          <svg class="sk-bg sk-wave" viewBox="0 0 120 64" aria-hidden="true">
+            <rect class="wb" x="6" y="24" width="6" height="16" rx="3"/>
+            <rect class="wb" x="18" y="14" width="6" height="36" rx="3"/>
+            <rect class="wb" x="30" y="6" width="6" height="52" rx="3"/>
+            <rect class="wb" x="42" y="18" width="6" height="28" rx="3"/>
+            <rect class="wb" x="54" y="2" width="6" height="60" rx="3"/>
+            <rect class="wb" x="66" y="12" width="6" height="40" rx="3"/>
+            <rect class="wb" x="78" y="22" width="6" height="20" rx="3"/>
+            <rect class="wb" x="90" y="10" width="6" height="44" rx="3"/>
+            <rect class="wb" x="102" y="20" width="6" height="24" rx="3"/>
+          </svg>
+        </article>
+        <article class="sk sk-g" data-rv data-rv-delay="0.36">
+          <h3>Research &amp; monitoring</h3>
+          <p>Survey analysis and brand monitoring, from SPSS to Brand24.</p>
+          <div class="sk-tools"><span class="sk-tool"><i><img src="uploads/logos/spss.svg" alt="" width="26" height="26" loading="lazy"></i><span>SPSS</span></span><span class="sk-tool"><i><img src="uploads/logos/synthesio.svg" alt="" width="26" height="26" loading="lazy"></i><span>Synthesio</span></span><span class="sk-tool"><i><img src="uploads/logos/brand24.svg" alt="" width="26" height="26" loading="lazy"></i><span>Brand24</span></span></div>
+          <svg class="sk-bg sk-radar" viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="rg" cx="50" cy="50" r="46"/>
+            <circle class="rg" cx="50" cy="50" r="30"/>
+            <circle class="rg" cx="50" cy="50" r="14"/>
+            <path class="rg" d="M50 4v92M4 50h92"/>
+            <path class="sweep" d="M50 50 L50 4 A46 46 0 0 1 82.5 17.5 Z"/>
+            <circle class="blip" cx="68" cy="34" r="3"/>
+            <circle class="blip" cx="32" cy="62" r="2.5"/>
+            <circle class="blip" cx="58" cy="72" r="2"/>
+          </svg>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="sec exp" id="exp">
+    <div class="container">
+      <h2 class="sec-title" data-split>The path so far<span class="dot">.</span></h2>
+      <div class="career">
+        <div class="year-col" aria-hidden="true">
+          <div class="year" id="year"><span>2023</span></div>
+          <p class="year-note" id="yearNote">Data Analyst</p>
+        </div>
+        <div class="crows" id="crows">
+          <div class="crow" data-year="2023" data-note="Data Analyst" data-rv>
+            <div class="when">Apr 2023 - Jun 2026</div>
+            <div><h3>Data Analyst</h3><div class="org">Press Information Department</div><p>Power BI dashboards, Python reporting automation, DeepSeek media monitoring, 29+ scrapers and alert pipelines.</p></div>
+          </div>
+          <div class="crow" data-year="2022" data-note="E-Commerce Specialist" data-rv data-rv-delay=".06">
+            <div class="when">Aug 2022 - Dec 2022</div>
+            <div><h3>E-Commerce Specialist (Team Lead)</h3><div class="org">Vapes Direct</div><p>Built Power BI sales and performance dashboards and ran A/B testing to drive data-informed decisions.</p></div>
+          </div>
+          <div class="crow" data-year="2020" data-note="E-Commerce Officer" data-rv data-rv-delay=".12">
+            <div class="when">Apr 2020 - Jun 2022</div>
+            <div><h3>E-Commerce Officer</h3><div class="org">Izoc Solutions</div><p>Built monthly and annual e-commerce sales reports and interactive Excel and Power BI dashboards, and ran pricing analysis across the online store.</p></div>
+          </div>
+          <div class="crow" data-year="2017" data-note="SEO Specialist" data-rv data-rv-delay=".18">
+            <div class="when">Mar 2017 - Feb 2020</div>
+            <div><h3>SEO Specialist</h3><div class="org">IT Supersonics</div><p>Keyword research and competitor analysis: an early start in data-driven decision making.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WORK ================= -->
+  <section class="sec work" id="work">
+    <div class="container">
+      <h2 class="sec-title" data-split>Projects that settle the debate<span class="dot">.</span></h2>
+      <p class="sec-sub" data-rv>Eight Power BI builds, from HR attrition to an esports career. Four are public; four are confidential workplace builds.</p>
+      <div class="show">
+        <div class="pj-list" id="pjList" role="tablist" aria-label="Projects" aria-orientation="vertical">
+        <button type="button" class="pj is-active" role="tab" id="pj-1" aria-selected="true" tabindex="0" aria-controls="pv" data-rv data-rv-delay="0.00"
+          data-title="Social Media Monitoring" data-tag="Power BI, 3 pages" data-built="Power BI, DAX, Power Query" data-alt="Social Media Monitoring dashboard" data-conf="1"
+          data-pages='[{"label":"Monitoring","img":"uploads/dash-social-media-monitoring.webp"},{"label":"Severity map","img":"uploads/dash-social-media-severity.webp"},{"label":"Shape map","img":"uploads/dash-social-media-shape.webp"}]'
+          data-desc="The operational lens on a countering-violent-extremism (CVE) media dataset. It tracks flagged content by platform, category and district, then uses a geo severity map and region shape-map to show exactly where risk is concentrating, so teams know where to act.">
+          <span class="n">01</span><span class="t">Social Media Monitoring</span><svg class="ar" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+        </button>
+        <button type="button" class="pj" role="tab" id="pj-2" aria-selected="false" tabindex="-1" aria-controls="pv" data-rv data-rv-delay="0.05"
+          data-title="Sentiment Analysis" data-tag="Power BI, 4 pages" data-built="Power BI, Python, DeepSeek API" data-alt="Sentiment Analysis dashboard" data-conf="1"
+          data-pages='[{"label":"Overview","img":"uploads/dash-sentiment-1.webp"},{"label":"Positive","img":"uploads/dash-sentiment-2.webp"},{"label":"Negative","img":"uploads/dash-sentiment-3.webp"},{"label":"Neutral","img":"uploads/dash-sentiment-4.webp"}]'
+          data-desc="The opinion lens on the same CVE media dataset. The DeepSeek API classifies each item as positive, negative or neutral, and a 4-page report quantifies the overall mood, with dedicated deep-dives into what drives each side.">
+          <span class="n">02</span><span class="t">Sentiment Analysis</span><svg class="ar" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+        </button>
+        <button type="button" class="pj" role="tab" id="pj-3" aria-selected="false" tabindex="-1" aria-controls="pv" data-rv data-rv-delay="0.10"
+          data-title="Content Risk &amp; Severity" data-tag="Power BI" data-built="Power BI, DAX, Power Query" data-alt="Content Risk and Severity dashboard" data-tags="Sensitivity scoring, Severity by district, Likely targets" data-conf="1"
+          data-pages='[{"label":"Overview","img":"uploads/dash-sensitivity.webp"}]'
+          data-desc="The risk-tiering lens on the same CVE media dataset. It scores each post by content sensitivity (violent, socio-cultural or political), then maps severity by district and surfaces likely targets, answering how dangerous, and exactly where.">
+          <span class="n">03</span><span class="t">Content Risk &amp; Severity</span><svg class="ar" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+        </button>
+        <button type="button" class="pj" role="tab" id="pj-4" aria-selected="false" tabindex="-1" aria-controls="pv" data-rv data-rv-delay="0.15"
+          data-title="Sales &amp; Supply Performance" data-tag="Power BI" data-built="Power BI, DAX, Power Query" data-alt="Sales and Supply Performance dashboard" data-tags="YTD revenue, Perfect-order rate, On-time delivery, 90-day demand gap" data-link="https://app.powerbi.com/view?r=eyJrIjoiZTE5NGVmMTktYTRmYy00MjlhLWJhM2ItNzgxZDE5MmU5MTE5IiwidCI6IjJhYWI5ZmQxLTI3NjctNGQ1MC04NTVlLThjMTQ0MWZkNjY2NiIsImMiOjl9"
+          data-pages='[{"label":"Overview","img":"uploads/dash-sales-supply.webp"}]'
+          data-desc="Unified two databases, Sales and Purchasing, into one operations view. It tracks YTD revenue, perfect-order rate and on-time delivery, and flags the 90-day demand-supply gap by item so teams can fix shortages before they bite.">
+          <span class="n">04</span><span class="t">Sales &amp; Supply</span><span class="pj-live">Live</span><svg class="ar" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+        </button>
+        <button type="button" class="pj" role="tab" id="pj-5" aria-selected="false" tabindex="-1" aria-controls="pv" data-rv data-rv-delay="0.20"
+          data-title="Arslan Ash: Tekken 8 Career" data-tag="Power BI, 2 pages" data-built="Power BI, DAX, Power Query" data-alt="Arslan Ash Tekken 8 career dashboard" data-link="https://app.powerbi.com/view?r=eyJrIjoiNTUzZDZmOGMtMmU1Mi00YThhLTg1Y2MtZWUzYzYwOGYxNGYxIiwidCI6IjJhYWI5ZmQxLTI3NjctNGQ1MC04NTVlLThjMTQ0MWZkNjY2NiIsImMiOjl9"
+          data-pages='[{"label":"Career analytics","img":"uploads/dash-arslan-ash.webp"},{"label":"Tournament overview","img":"uploads/dash-arslan-ash-2.webp"}]'
+          data-desc="Tracked a pro esports career across 273 matches and 32 tournaments, a 79.5% overall win rate. A Career page maps matchup net-advantage and opponents, while a Tournament page shows finishes and season-over-season momentum.">
+          <span class="n">05</span><span class="t">Tekken 8 Career</span><span class="pj-live">Live</span><svg class="ar" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+        </button>
+        <button type="button" class="pj" role="tab" id="pj-6" aria-selected="false" tabindex="-1" aria-controls="pv" data-rv data-rv-delay="0.25"
+          data-title="Amazon Product Analytics" data-tag="Power BI, 2 pages" data-built="Power BI, DAX, Power Query" data-alt="Amazon Product Analytics dashboard" data-link="https://app.powerbi.com/view?r=eyJrIjoiMjkwZDVkYzMtYjA1My00YTk0LWFkMTEtYWFhZjA5M2QzYmY0IiwidCI6IjJhYWI5ZmQxLTI3NjctNGQ1MC04NTVlLThjMTQ0MWZkNjY2NiIsImMiOjl9"
+          data-pages='[{"label":"Overview","img":"uploads/dash-amazon-sales.webp"},{"label":"Drill-through","img":"uploads/dash-amazon-drillthrough.webp"}]'
+          data-desc="Turned 1,351 products and 23.8M reviews into a clear performance picture: a &#8377;6,896 Cr GMV proxy and a 4.16 weighted rating. KPIs reveal the discount sweet-spot, and a drill-through opens full detail for any single product.">
+          <span class="n">06</span><span class="t">Amazon Analytics</span><span class="pj-live">Live</span><svg class="ar" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+        </button>
+        <button type="button" class="pj" role="tab" id="pj-7" aria-selected="false" tabindex="-1" aria-controls="pv" data-rv data-rv-delay="0.30"
+          data-title="HR Analytics: Employee Attrition" data-tag="Power BI, 2 pages" data-built="Power BI, DAX, Power Query" data-alt="HR Analytics dashboard" data-link="https://app.powerbi.com/view?r=eyJrIjoiOGM4OWI4NjItNGNmMy00OGQ4LTg4NTUtMzVmMGUwMzUxODA4IiwidCI6IjJhYWI5ZmQxLTI3NjctNGQ1MC04NTVlLThjMTQ0MWZkNjY2NiIsImMiOjl9"
+          data-pages='[{"label":"Overview","img":"uploads/dash-hr-overview.webp"},{"label":"Drill-through","img":"uploads/dash-hr-drillthrough.webp"}]'
+          data-desc="Analyzed a 1,470-employee workforce to find who leaves and why. DAX risk multipliers surface the real drivers (OverTime carries 3&times; the risk, low income 5&times;), and a drill-through opens role-level detail for any segment.">
+          <span class="n">07</span><span class="t">HR Attrition</span><span class="pj-live">Live</span><svg class="ar" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+        </button>
+        <button type="button" class="pj" role="tab" id="pj-8" aria-selected="false" tabindex="-1" aria-controls="pv" data-rv data-rv-delay="0.35"
+          data-title="Media Workers Insurance" data-tag="Power BI" data-built="Power BI, DAX, Power Query" data-alt="Media Workers Insurance dashboard" data-tags="Workers by province, By city, By news agency, Gender filter" data-conf="1"
+          data-pages='[{"label":"Overview","img":"uploads/dash-media-workers.webp"}]'
+          data-desc="A Power BI view of a media-workers welfare scheme. It maps the registered workforce by province, city and news agency, with interactive filters so administrators can slice the numbers at a glance.">
+          <span class="n">08</span><span class="t">Media Workers Insurance</span><svg class="ar" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg>
+        </button>
+        </div>
+        <div class="pv" id="pv" role="tabpanel" aria-labelledby="pj-1" data-rv data-rv-delay=".15">
+          <div class="pv-media">
+            <div class="pv-frame" id="pvFrame">
+              <img class="pv-img is-front" id="pvImgA" src="uploads/dash-social-media-monitoring.webp" alt="Social Media Monitoring dashboard" width="1518" height="846" loading="lazy">
+              <img class="pv-img" id="pvImgB" alt="" width="1509" height="844" aria-hidden="true">
+              <span class="pv-cur" id="pvCur" aria-hidden="true"><span>View live</span></span>
+            </div>
+          </div>
+          <div class="pv-tabs" id="pvTabs" role="tablist" aria-label="Dashboard pages"></div>
+          <div class="pv-info">
+            <div class="pv-text">
+              <h3 id="pvT">Social Media Monitoring</h3>
+              <p id="pvD">The operational lens on the CVE media dataset. It tracks flagged content by platform, category and district, then uses a geo severity map and region shape-map to show exactly where risk is concentrating, so teams know where to act.</p>
+            </div>
+            <div class="pv-side">
+              <span class="mono" id="pvTag">Power BI, 3 pages</span>
+              <a class="link" id="pvLive" hidden target="_blank" rel="noopener">View live <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+              <span class="badge" id="pvConf"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>Confidential</span>
+              <span class="pv-built"><span class="mono">Built with</span><span id="pvBuilt">Power BI, DAX, Power Query</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SIDE PROJECT: PRICE RADAR ================= -->
+  <section class="sec radar" id="radar" data-nav="work">
+    <div class="container">
+      <span class="mono rd-eyebrow" data-rv>Web apps</span>
+      <h2 class="sec-title" data-split>Some problems need an app<span class="dot">.</span></h2>
+      <p class="sec-sub" data-rv>Personal projects I built end to end, for jobs a spreadsheet can't do on its own. Open the live link and sign in with Google.</p>
+      <div class="rd-grid">
+        <div class="rd-copy">
+          <h3 data-rv>Price Radar</h3>
+          <span class="mono rd-kicker" data-rv>Competitor price tracker for Shopify sellers</span>
+          <ul class="rd-rows">
+            <li data-rv data-rv-delay=".04"><span class="mono">Data</span><p>Reads competitors' public Shopify product feeds: <strong><span class="rd-num" data-to="4711">4,711</span> products</strong> from 3 stores in one check.</p></li>
+            <li data-rv data-rv-delay=".08"><span class="mono">Automation</span><p>Re-checks every store on a <strong>6-hour schedule</strong> on its own, through a GitHub Actions job.</p></li>
+            <li data-rv data-rv-delay=".12"><span class="mono">Analysis</span><p>Matches rival products to yours and estimates the <strong>revenue at risk</strong> when you are undercut.</p></li>
+            <li data-rv data-rv-delay=".16"><span class="mono">Decision</span><p>Suggests a move for each matched product, such as <strong>hold, match, beat or raise</strong> the price, plus an AI pricing brief.</p></li>
+          </ul>
+          <div class="rd-foot" data-rv data-rv-delay=".2">
+            <a class="link" href="https://price-radar.streamlit.app/" target="_blank" rel="noopener noreferrer">View live <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+            <span class="rd-built"><span class="mono">Built with</span>Python, Streamlit, Supabase, GitHub Actions, DeepSeek API</span>
+          </div>
+        </div>
+        <div class="rd-media" data-rv data-rv-delay=".1">
+          <a class="rd-frame" id="rdFrame" href="https://price-radar.streamlit.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Price Radar, the live app">
+            <img class="rd-img is-front" src="uploads/pr-dashboard.webp" alt="Price Radar, Dashboard" width="1510" height="849" loading="lazy">
+            <img class="rd-img" alt="" width="1510" height="849" aria-hidden="true">
+            <span class="rd-cur" aria-hidden="true"><span>View live</span></span>
+          </a>
+          <div class="rd-tabs" role="group" aria-label="Price Radar pages">
+            <span class="mono rd-rowlabel">Pages</span>
+              <button type="button" class="tab is-active" aria-pressed="true" data-img="uploads/pr-dashboard.webp">Dashboard</button>
+              <button type="button" class="tab" aria-pressed="false" data-img="uploads/pr-recommendations.webp">Recommendations</button>
+              <button type="button" class="tab" aria-pressed="false" data-img="uploads/pr-money-at-risk.webp">Money at risk</button>
+              <button type="button" class="tab" aria-pressed="false" data-img="uploads/pr-my-prices.webp">My prices</button>
+          </div>
+          <p class="rd-note">Screenshots show the app's built-in sample data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AUTOMATIONS ================= -->
+  <section class="sec autos" id="autos">
+    <div class="container">
+      <h2 class="sec-title" data-split>The boring part, done<span class="dot">.</span></h2>
+      <p class="sec-sub" data-rv>Eight pipelines and tools that replaced someone's Monday.</p>
+      <div class="stack" id="stack">
+        <article class="card"><span class="n">01</span><div><h3>Daily media monitoring pipeline</h3><div class="tools">Python, Apache Airflow, DeepSeek API, Word</div><p>A scheduled pipeline scrapes the day's coverage, runs each item through the DeepSeek API for sentiment, then assembles a polished Word report: headlines, sentiment breakdown and source mix, ready in the editor's inbox every morning.</p></div><div class="out"><b class="sm">Daily</b><span>Word report</span></div></article>
+        <article class="card"><span class="n">02</span><div><h3>Urgent-case alert pipeline</h3><div class="tools">Apps Script, Python, Selenium</div><p>A Google Form triggers an Apps Script that builds a PDF, emails stakeholders, and drops the file in Drive. A Python watcher picks it up and posts it to the WhatsApp response group within minutes. On-call alerts, hands-free.</p></div><div class="out"><b class="sm">&lt;5 min</b><span>alert to inbox</span></div></article>
+        <article class="card"><span class="n">03</span><div><h3>Brand24 monitoring</h3><div class="tools">Python, Tkinter, Selenium</div><p>A Tkinter form takes the keywords; Selenium pastes them into Brand24's search, applies region, language and date filters, downloads the PDF, renames it by keyword, ships it to the right WhatsApp group, and deletes the file to avoid duplicates.</p></div><div class="out"><b class="sm">End-to-end</b><span>automated</span></div></article>
+        <article class="card"><span class="n">04</span><div><h3>Facebook &amp; Instagram scraper</h3><div class="tools">Python, Playwright, Selenium</div><p>Reads target handles from the social-media team's sheet, opens each profile in a headless browser, scrolls through posts, and writes a clean CSV: captions, dates, engagement, links.</p></div><div class="out"><b class="sm">1-click</b><span>posts to CSV</span></div></article>
+        <article class="card"><span class="n">05</span><div><h3>Newspaper archive scraper</h3><div class="tools">Python, BeautifulSoup, DeepSeek API, PDF</div><p>A site-aware Python crawler walks each paper's archive, handles pagination and date filters, and collects article text and metadata into a tidy dataset. Each item is then passed to the DeepSeek API for sentiment analysis, and the results are compiled into a ready-to-share PDF report. End to end, automatically.</p></div><div class="out"><b>29+</b><span>sources automated</span></div></article>
+        <article class="card"><span class="n">06</span><div><h3>Multi-language fatwa scrapers</h3><div class="tools">Python, BeautifulSoup, Playwright</div><p>Each website got its own scraper. Every site has a different layout and language, so one-size-fits-all wouldn't work. Each scraper pulls the data and outputs clean JSON and CSV files in the source language.</p></div><div class="out"><b>300K</b><span>rows scraped</span></div></article>
+        <article class="card"><span class="n">07</span><div><h3>Speech-to-text transcription</h3><div class="tools">OpenAI Whisper, Python</div><p>A multi-language transcription system built on OpenAI Whisper that converts audio and video coverage into accurate, searchable text. It lets broadcast clips be monitored and analyzed the same way as print, so spoken coverage sits alongside everything else.</p></div><div class="out"><b class="sm">Multi-language</b><span>audio to text</span></div></article>
+        <article class="card"><span class="n">08</span><div><h3>YouTube sentiment via MCP</h3><div class="tools">Python, MCP server, YouTube API, LLM</div><p>An AI-driven system that connects a language model to the YouTube API through the Model Context Protocol. The model pulls a video's engagement and comments on demand and reads audience sentiment on the spot, with no one exporting data by hand.</p></div><div class="out"><b class="sm">On-demand</b><span>audience sentiment</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= IMPACT ================= -->
+  <section class="sec impact" id="impact">
+    <div class="container">
+      <div class="impact-grid">
+        <h2 class="sec-title" data-split>Numbers that matter<span class="dot">.</span></h2>
+        <div class="nums">
+          <div class="num" data-rv><b><span data-count="7">7</span><em>+</em></b><strong>Years of experience</strong><span>Data, automation and e&#8209;commerce</span></div>
+          <div class="num" data-rv data-rv-delay=".08"><b><span data-count="15">15</span><em>+</em></b><strong>Dashboards built</strong><span>Power BI, Tableau, Looker Studio</span></div>
+          <div class="num" data-rv data-rv-delay=".16"><b><span data-count="8">8</span><em>+</em></b><strong>Automations built</strong><span>Scheduled jobs and one&#8209;click tools</span></div>
+          <div class="num" data-rv data-rv-delay=".24"><b><span data-count="6">6</span><em>+</em></b><strong>Industries served</strong><span>Media, e&#8209;commerce, government, HR, esports, insurance</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="cta-grid">
+        <div class="terrain" data-rv>
+          <svg viewBox="0 0 400 250" preserveAspectRatio="none" aria-hidden="true">
+            <path class="c" d="M-20 250 C 60 150, 120 180, 180 120 S 300 40, 420 60"/>
+            <path class="c" d="M-20 250 C 70 170, 130 200, 190 145 S 300 70, 420 90"/>
+            <path class="c" d="M-20 250 C 80 195, 140 220, 200 170 S 300 100, 420 120"/>
+            <path class="c" d="M-20 250 C 90 215, 150 240, 210 195 S 300 130, 420 150"/>
+            <path class="c" d="M-20 250 C 100 235, 160 255, 220 220 S 300 160, 420 180"/>
+            <path class="c" d="M60 250 C 140 245, 200 260, 240 240 S 320 195, 420 210"/>
+            <path class="c" d="M-20 250 C 50 130, 110 160, 170 95 S 300 10, 420 30"/>
+            <path class="c" d="M-20 250 C 40 110, 100 140, 160 70 S 290 -20, 420 0"/>
+            <path class="c" d="M150 250 C 220 250, 260 262, 300 250 S 360 230, 420 238"/>
+          </svg>
+          <span class="plus" aria-hidden="true">+</span>
+          <div class="next">
+            <span class="mono next-h">What happens next</span>
+            <ol class="next-list">
+              <li data-rv data-rv-delay=".1"><b>01</b><div><strong>You send the problem</strong><span>The messy spreadsheet, the scattered sources, or the report someone rebuilds every Monday.</span></div></li>
+              <li data-rv data-rv-delay=".18"><b>02</b><div><strong>We scope it together</strong><span>A short call to agree on the sources, the output, and who reads it.</span></div></li>
+              <li data-rv data-rv-delay=".26"><b>03</b><div><strong>I build it and hand it over</strong><span>Documented, tested, and running on its own long after handover.</span></div></li>
+            </ol>
+          </div>
+        </div>
+        <div class="cta-copy">
+          <span class="mono cta-eyebrow" data-rv>Let's work together</span>
+          <h2 data-split>Ready to turn your data into growth<span class="dot">?</span></h2>
+          <p class="sub" data-rv data-rv-delay=".08">If you've got data sitting somewhere awkward, or a process someone does every Monday, let's build something that runs on its own.</p>
+          <a href="mailto:m_h2713@yahoo.com" class="email" data-rv data-rv-delay=".12">m_h2713@yahoo.com</a>
+          <div class="contact-row" data-rv data-rv-delay=".16">
+            <span class="mag" data-magnet><a href="mailto:m_h2713@yahoo.com" class="btn"><span>Get in touch</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a></span>
+            <a class="link" href="https://www.linkedin.com/in/mhamzzaa/" target="_blank" rel="noopener noreferrer">LinkedIn <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+            <a class="link" href="https://github.com/insightsbyhamza" target="_blank" rel="noopener noreferrer">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+            <a class="link" href="uploads/Resume.pdf" target="_blank" rel="noopener">Resume <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="container">
+    <a href="#top" class="logo">Muhammad Hamza<span class="dot">.</span></a>
+    <span>Data Analyst &amp; Automation Specialist</span>
+    <a href="#top" class="link">Back to top <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></a>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+<script>
+(function () {
+  'use strict';
+  var html = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia('(pointer: fine)').matches;
+  var hasGsap = !!(window.gsap && window.ScrollTrigger);
+  var anim = hasGsap && !reduce && html.classList.contains('js-anim');   /* full motion; if the safety net already revealed the page, stay static */
+  window.__appOk = true;
+  if (!anim) html.classList.remove('js-anim');
+  if (hasGsap) gsap.registerPlugin(ScrollTrigger);
+
+  var navH = function () { return parseFloat(getComputedStyle(html).getPropertyValue('--nav-h')) || 68; };
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+  /* ---------- Split section titles into masked words (all modes) ---------- */
+  $$('[data-split]').forEach(function (h) {
+    var nodes = Array.prototype.slice.call(h.childNodes), last = null;
+    h.innerHTML = '';
+    nodes.forEach(function (n) {
+      if (n.nodeType === 3) {
+        n.textContent.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { h.appendChild(document.createTextNode(' ')); return; }
+          var w = document.createElement('span'), i = document.createElement('span');
+          w.className = 'w'; i.textContent = part; w.appendChild(i); h.appendChild(w); last = i;
+        });
+      } else if (n.nodeType === 1) {
+        if (last) { last.appendChild(n); }
+        else { var w2 = document.createElement('span'), i2 = document.createElement('span'); w2.className = 'w'; i2.appendChild(n); w2.appendChild(i2); h.appendChild(w2); last = i2; }
+      }
+    });
+  });
+
+  /* ---------- Theme ---------- */
+  var themeMeta = $('meta[name="theme-color"]');
+  function applyTheme(t) {
+    html.classList.add('theme-snap');
+    html.setAttribute('data-theme', t);
+    if (themeMeta) themeMeta.content = (t === 'light') ? '#fafbf9' : '#0a0e0b';
+    try { localStorage.setItem('theme', t); } catch (e) {}
+    $$('[data-theme-toggle]').forEach(function (b) { b.setAttribute('aria-pressed', t === 'light' ? 'true' : 'false'); });
+    requestAnimationFrame(function () { requestAnimationFrame(function () { html.classList.remove('theme-snap'); }); });
+  }
+  $$('[data-theme-toggle]').forEach(function (b) { b.setAttribute('aria-pressed', html.getAttribute('data-theme') === 'light' ? 'true' : 'false'); });
+  $$('[data-theme-toggle]').forEach(function (b) {
+    b.addEventListener('click', function () { applyTheme(html.getAttribute('data-theme') === 'light' ? 'dark' : 'light'); });
+  });
+
+  /* ---------- Smooth scroll (Lenis) ---------- */
+  var lenis = null;
+  if (anim && window.Lenis) {
+    lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  } else {
+    html.classList.add('no-lenis');
+  }
+  function scrollToEl(el, focusEl) {
+    if (lenis) { lenis.scrollTo(el, { offset: -(navH() + 8), duration: 1.25, easing: function (t) { return 1 - Math.pow(1 - t, 4); } }); }
+    else { el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
+    var f = focusEl || el;
+    if (f && f.focus) {
+      if (!/^(a|button|input|select|textarea)$/i.test(f.tagName)) f.setAttribute('tabindex', '-1');
+      f.focus({ preventScroll: true });
+    }
+  }
+  $$('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var h = a.getAttribute('href');
+      if (h === '#top') {
+        e.preventDefault(); closeMenu(); if (lenis) lenis.scrollTo(0, { duration: 1.2 }); else window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+        var topEl = $('#top'); if (topEl) { topEl.setAttribute('tabindex', '-1'); topEl.focus({ preventScroll: true }); }
+        return;
+      }
+      var el = h.length > 1 && $(h);
+      if (!el) return;
+      /* Work links land on the showcase itself, so the list and preview are on screen (the title otherwise eats the fold). */
+      var target = (h === '#work' && $('#work .show')) || el;
+      e.preventDefault(); closeMenu(); scrollToEl(target, el);
+      if (history.replaceState) history.replaceState(null, '', h);
+    });
+  });
+
+  /* ---------- Nav: scrolled / hide on scroll down / progress / active link ---------- */
+  var nav = $('#nav'), progress = $('#progress'), menuOpen = false;
+  var navLinks = $$('.nav-links a');
+  function setActive(id) {
+    navLinks.forEach(function (a) {
+      if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+    });
+  }
+  if (hasGsap) {
+    ScrollTrigger.create({
+      start: 0, end: 'max',
+      onUpdate: function (self) {
+        var y = self.scroll();
+        nav.classList.toggle('is-scrolled', y > 24);
+        nav.classList.toggle('is-hidden', self.direction === 1 && y > 160 && !menuOpen && !nav.contains(document.activeElement));
+        if (progress) progress.style.transform = 'scaleX(' + self.progress + ')';
+      }
+    });
+    $$('main section[id]').forEach(function (sec) {
+      ScrollTrigger.create({ trigger: sec, start: 'top 45%', end: 'bottom 45%', onToggle: function (s) { if (s.isActive) setActive(sec.getAttribute('data-nav') || sec.id); } });
+    });
+  } else {
+    var lastY = 0, ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY, max = document.documentElement.scrollHeight - window.innerHeight;
+        nav.classList.toggle('is-scrolled', y > 24);
+        nav.classList.toggle('is-hidden', y > lastY && y > 160 && !menuOpen && !nav.contains(document.activeElement));
+        if (progress) progress.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+        lastY = y; ticking = false;
+      });
+    }, { passive: true });
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) setActive(e.target.getAttribute('data-nav') || e.target.id); }); }, { rootMargin: '-45% 0px -45% 0px' });
+      $$('main section[id]').forEach(function (s) { io.observe(s); });
+    }
+  }
+
+  /* ---------- Mobile menu ---------- */
+  var menu = $('#menu'), menuBtn = $('#menuBtn'), menuClose = $('#menuClose');
+  function openMenu() {
+    menuOpen = true; menu.classList.add('is-open'); menu.setAttribute('aria-hidden', 'false');
+    menuBtn.setAttribute('aria-expanded', 'true'); html.classList.add('menu-open'); nav.classList.remove('is-hidden');
+    if (lenis) lenis.stop(); menuClose.focus();
+  }
+  function closeMenu() {
+    if (!menuOpen) return;
+    menuOpen = false; menu.classList.remove('is-open'); menu.setAttribute('aria-hidden', 'true');
+    menuBtn.setAttribute('aria-expanded', 'false'); html.classList.remove('menu-open');
+    if (lenis) lenis.start(); menuBtn.focus();
+  }
+  menuBtn.addEventListener('click', function () { menuOpen ? closeMenu() : openMenu(); });
+  menuClose.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+  /* Keep Tab inside the open menu, and close it if the layout switches back to the desktop nav. */
+  document.addEventListener('keydown', function (e) {
+    if (!menuOpen || e.key !== 'Tab') return;
+    var f = $$('#menu a, #menu button').filter(function (x) { return x.offsetParent !== null; });
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+  window.addEventListener('resize', function () { if (menuOpen && window.innerWidth > 900) closeMenu(); });
+
+  /* ---------- Hero: intro curtain + entrance ---------- */
+  var intro = $('#intro'), hero = $('.hero'), heroPhoto = $('.hero-photo');
+  if (anim) {
+    var atTop = !(location.hash && location.hash.length > 1 && $(location.hash)) && (window.scrollY || 0) < 120;
+    var tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+    if (atTop) {
+      /* No scrolling behind the curtain, and hold the start until the display font is in (max 1.2 s) so the name never re-wraps. */
+      tl.pause();
+      if (lenis) lenis.stop();
+      html.classList.add('intro-lock');
+      tl.call(function () { if (lenis) lenis.start(); html.classList.remove('intro-lock'); }, null, 2.65);
+      var startIntro = function () { tl.play(); };
+      if (document.fonts && document.fonts.load) {
+        Promise.race([
+          Promise.all([document.fonts.load('700 1em "Bricolage Grotesque"'), document.fonts.load('600 1em Manrope')]),
+          new Promise(function (r) { setTimeout(r, 1200); })
+        ]).then(startIntro, startIntro);
+      } else { setTimeout(startIntro, 120); }
+      /* Closed curtain, the greeting rises word by word, then the curtain parts to the sides. */
+      var introWords = $$('.intro-text .w > span');
+      gsap.set(introWords, { yPercent: 112 });
+      gsap.set('.intro-avatar', { scale: 0.6, opacity: 0 });
+      gsap.set('.intro-text', { visibility: 'visible' });
+      tl.to('.intro-avatar', { scale: 1, opacity: 1, duration: 0.9, ease: 'back.out(1.5)' }, 0.15);
+      tl.to(introWords, { yPercent: 0, duration: 0.9, stagger: 0.09 }, 0.45);
+      tl.to('.intro-text', { opacity: 0, y: -24, duration: 0.4, ease: 'power2.in' }, 2.4);
+      tl.to('.intro-panel .seam', { opacity: 0.85, duration: 0.35 }, 2.5);
+      tl.to('.intro-l', { xPercent: -100, duration: 1.15, ease: 'expo.inOut' }, 2.65);
+      tl.to('.intro-r', { xPercent: 100, duration: 1.15, ease: 'expo.inOut' }, 2.65);
+      tl.set(intro, { display: 'none' });
+    } else {
+      tl.set(intro, { display: 'none' }, 0);
+    }
+    var t0 = atTop ? 3.1 : 0;
+    /* Hidden state is set by GSAP (not CSS) so the transform cache is clean. */
+    gsap.set('.hero-title .line > span', { yPercent: 112 });
+    gsap.set('.hero-title', { visibility: 'visible' });
+    tl.to('.hero-title .line > span', { yPercent: 0, duration: 1.15, stagger: 0.09 }, t0);
+    tl.fromTo(['.hero-role', '.hero-tag', '.hero-sub', '.hero-cta', '.hero-meta'], { y: 22, opacity: 0, filter: 'blur(6px)' }, { y: 0, opacity: 1, filter: 'blur(0px)', duration: 0.9, stagger: 0.08 }, t0 + 0.3);
+    /* Portrait: the green slab slides in, the photo wipes open from the right, the signature lands last. */
+    tl.fromTo('.photo-panel', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 1.2 }, t0 + 0.1);
+    tl.fromTo('.photo', { clipPath: 'inset(0 0 0 100%)' }, { clipPath: 'inset(0 0 0 0%)', duration: 1.4, ease: 'expo.inOut' }, t0 + 0.2);
+    tl.fromTo('.sig', { opacity: 0, x: 16, rotate: -2 }, { opacity: 1, x: 0, rotate: -8, duration: 0.9 }, t0 + 1.25);
+
+    /* Scroll: the portrait drifts up faster than the copy, the sheet grid dissolves. */
+    gsap.matchMedia().add('(min-width: 901px)', function () {
+      var heroST = { trigger: hero, start: 'top top', end: 'bottom top', scrub: true };
+      gsap.to(heroPhoto, { yPercent: -12, ease: 'none', scrollTrigger: heroST, immediateRender: false });
+      gsap.to('.hero-copy', { y: 90, opacity: 0.15, ease: 'none', scrollTrigger: heroST });
+      gsap.to('.hero-sheet', { opacity: 0, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: '60% top', scrub: true } });
+    });
+
+    /* Cursor parallax: each layer moves by its own depth (fine pointers only). */
+    if (fine) {
+      var layers = $$('[data-depth]', hero).map(function (el) {
+        return { d: parseFloat(el.getAttribute('data-depth')) || 0, x: gsap.quickTo(el, 'x', { duration: 1, ease: 'power3' }), y: gsap.quickTo(el, 'y', { duration: 1, ease: 'power3' }) };
+      });
+      hero.addEventListener('pointermove', function (e) {
+        var r = hero.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
+        layers.forEach(function (l) { l.x(px * l.d); l.y(py * l.d); });
+      });
+      hero.addEventListener('pointerleave', function () { layers.forEach(function (l) { l.x(0); l.y(0); }); });
+    }
+  }
+
+  /* ---------- Generic reveals + split titles ---------- */
+  if (anim) {
+    $$('[data-rv]').forEach(function (el) {
+      gsap.fromTo(el, { y: 28, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 1.1, ease: 'expo.out', delay: parseFloat(el.getAttribute('data-rv-delay')) || 0,
+        clearProps: 'transform', scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+        onComplete: el.classList.contains('crow') ? function () { ScrollTrigger.refresh(); } : null
+      });
+    });
+    $$('[data-split]').forEach(function (h) {
+      var words = $$('.w > span', h);
+      gsap.set(words, { yPercent: 112 });
+      gsap.set(h, { visibility: 'visible' });
+      gsap.to(words, {
+        yPercent: 0, duration: 1.1, ease: 'expo.out', stagger: 0.07,
+        scrollTrigger: { trigger: h, start: 'top 86%', once: true }
+      });
+    });
+  }
+
+  /* ---------- Counters ---------- */
+  $$('[data-count]').forEach(function (el) {
+    var to = parseFloat(el.getAttribute('data-count')), suf = el.getAttribute('data-suffix') || '';
+    var dec = parseInt(el.getAttribute('data-decimals'), 10) || 0;
+    var render = function (v) { el.textContent = (dec ? v.toFixed(dec) : Math.round(v)) + suf; };
+    if (!anim) { render(to); return; }
+    /* Screen readers get the final value at once; the ticking number is decorative. */
+    var host = el.parentNode;
+    if (host) {
+      var em = host.querySelector('em');
+      var sr = document.createElement('span');
+      sr.className = 'sr-only'; sr.textContent = (dec ? to.toFixed(dec) : Math.round(to)) + suf + (em ? em.textContent : '');
+      host.insertBefore(sr, el);
+      el.setAttribute('aria-hidden', 'true'); if (em) em.setAttribute('aria-hidden', 'true');
+    }
+    render(0);
+    ScrollTrigger.create({
+      trigger: el, start: 'top 92%', once: true,
+      onEnter: function () { var o = { v: 0 }; gsap.to(o, { v: to, duration: 1.6, ease: 'power3.out', onUpdate: function () { render(o.v); } }); }
+    });
+  });
+
+  /* ---------- About backdrop orbit: the box opens and the stack pours out when About arrives ---------- */
+  var aOrbit = $('.about-orbit');
+  if (aOrbit) {
+    var aboutSec = $('#about'), aboutLive = false;
+    var setLive = function (on) { aboutLive = on; aOrbit.classList.toggle('is-live', on); };
+    if (hasGsap) ScrollTrigger.create({ trigger: aboutSec, start: 'top bottom', end: 'bottom top', onToggle: function (st) { setLive(st.isActive); } });
+    else setLive(true);
+    if (anim) {
+      var aLine = $('.vline', aOrbit), aLen = aLine ? aLine.getTotalLength() : 0;
+      if (aLine) gsap.set(aLine, { strokeDasharray: aLen, strokeDashoffset: aLen });
+      gsap.set($('.box-lid', aOrbit), { rotationX: 0 });
+      gsap.set([$('.box-glow', aOrbit), $('.core-mark', aOrbit)], { opacity: 0 });
+      gsap.set($$('.orbit', aOrbit), { '--r': '0cqw' });
+      gsap.set($$('.tile-pop', aOrbit), { scale: 0.3, opacity: 0 });   /* .tile-in carries the CSS counter-rotation, so scale the wrapper */
+      var otl = gsap.timeline({ paused: true, defaults: { ease: 'expo.out' } });
+      if (aLine) otl.to(aLine, { strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut' }, 0);
+      otl.to($('.box-lid', aOrbit), { rotationX: -112, duration: 1, ease: 'expo.inOut' }, 0.2);
+      otl.to([$('.box-glow', aOrbit), $('.core-mark', aOrbit)], { opacity: 1, duration: 0.7 }, 0.55);
+      otl.to($('.orbit-b', aOrbit), { '--r': '27.5cqw', duration: 1.5 }, 0.7);
+      otl.to($('.orbit-a', aOrbit), { '--r': '40cqw', duration: 1.7 }, 0.8);
+      otl.to($$('.tile-pop', aOrbit), { scale: 1, opacity: 1, duration: 0.9, stagger: { each: 0.04, from: 'random' } }, 0.75);
+      ScrollTrigger.create({ trigger: aboutSec, start: 'top 70%', once: true, onEnter: function () { otl.play(); } });
+      gsap.fromTo(aOrbit, { y: 50 }, { y: -50, ease: 'none', scrollTrigger: { trigger: aboutSec, start: 'top bottom', end: 'bottom top', scrub: true } });
+      var aEmit = function () {
+        if (!aboutLive || document.hidden || otl.progress() < 1) return;
+        $$('.orbit', aOrbit).forEach(function (orbit) {
+          var r = parseFloat(getComputedStyle(orbit).getPropertyValue('--r')) || 40;
+          var dur = Math.max(0.35, (r - 17.5) / 22.5);
+          $$('.tile', orbit).forEach(function (tile) {
+            var dot = document.createElement('span');
+            dot.className = 'pulse';
+            dot.style.setProperty('--a', tile.style.getPropertyValue('--a'));
+            orbit.appendChild(dot);
+            gsap.fromTo(dot, { '--d': '17.5cqw', opacity: 0 }, { '--d': r + 'cqw', opacity: 1, duration: dur, ease: 'power1.inOut', onComplete: function () { dot.remove(); } });
+          });
+        });
+      };
+      gsap.delayedCall(3.2, function aLoop() { aEmit(); gsap.delayedCall(3.2, aLoop); });
+    }
+  }
+
+  /* ---------- Skills: the mini chart draws on reveal, the automation signal runs on hover ---------- */
+  if (anim) {
+    var art = $('.sk-art');
+    if (art) {
+      $$('.b', art).forEach(function (r, i) {
+        var by = parseFloat(r.getAttribute('y')), bh = parseFloat(r.getAttribute('height'));
+        r.setAttribute('data-y', by); r.setAttribute('data-h', bh);   /* originals, the reveal tween below zeroes the live attrs */
+        gsap.fromTo(r, { attr: { y: by + bh, height: 0 } }, { attr: { y: by, height: bh }, duration: 1.1, ease: 'expo.out', delay: i * 0.08, scrollTrigger: { trigger: art, start: 'top 90%', once: true } });
+      });
+      var line = $('.l', art), lineLen = line ? line.getTotalLength() : 0;
+      if (line) gsap.fromTo(line, { strokeDasharray: lineLen, strokeDashoffset: lineLen }, { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut', delay: 0.3, scrollTrigger: { trigger: art, start: 'top 90%', once: true } });
+    }
+    /* Scrape rows and code tokens type in from zero width; discs stack down; wave bars grow from the middle. */
+    var growW = function (sel, stagger, dur) {
+      var rects = $$(sel); if (!rects.length) return;
+      rects.forEach(function (r, i) {
+        var w = parseFloat(r.getAttribute('width'));
+        gsap.fromTo(r, { attr: { width: 0 } }, { attr: { width: w }, duration: dur, ease: 'expo.out', delay: i * stagger, scrollTrigger: { trigger: r.closest('.sk'), start: 'top 88%', once: true } });
+      });
+    };
+    growW('.sk-scrape .row', 0.1, 0.9);
+    growW('.sk-code .tok', 0.06, 0.6);
+    $$('.sk-star .jn').forEach(function (l, i) {
+      var len = l.getTotalLength();
+      gsap.fromTo(l, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: 0.8, ease: 'power2.out', delay: 0.25 + i * 0.08, clearProps: 'strokeDasharray,strokeDashoffset', scrollTrigger: { trigger: '.sk-e', start: 'top 88%', once: true } });
+    });
+    gsap.fromTo('.sk-star .fact', { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.7, ease: 'back.out(1.6)', scrollTrigger: { trigger: '.sk-e', start: 'top 88%', once: true } });
+    gsap.fromTo('.sk-star .dim', { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 0.8, duration: 0.7, ease: 'back.out(1.6)', stagger: 0.08, delay: 0.5, scrollTrigger: { trigger: '.sk-e', start: 'top 88%', once: true } });
+    $$('.sk-wave .wb').forEach(function (b, i) {
+      var y = parseFloat(b.getAttribute('y')), h = parseFloat(b.getAttribute('height'));
+      gsap.fromTo(b, { attr: { y: 32, height: 0 } }, { attr: { y: y, height: h }, duration: 0.8, ease: 'expo.out', delay: i * 0.05, scrollTrigger: { trigger: '.sk-f', start: 'top 88%', once: true } });
+    });
+    /* Data viz: on hover a marker runs along the line and the bars breathe like live data. */
+    var vizTile = $('.sk-a'), vizLine = $('.sk-art .l'), vizAnims = [];
+    if (vizTile && vizLine) {
+      var vdot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      vdot.setAttribute('r', '4.5'); vdot.setAttribute('class', 'vdot'); vizLine.parentNode.appendChild(vdot);
+      var vizLen = vizLine.getTotalLength();
+      var vizBars = $$('.sk-art .b').map(function (r) { return { el: r, y: +(r.getAttribute('data-y') || r.getAttribute('y')), h: +(r.getAttribute('data-h') || r.getAttribute('height')) }; });
+      var stopViz = function () { vizAnims.forEach(function (a) { a.kill(); }); vizAnims = []; };
+      vizTile.addEventListener('pointerenter', function () {
+        stopViz();
+        var prog = { p: 0 };
+        vizAnims.push(gsap.fromTo(prog, { p: 0 }, { p: 1, duration: 1.8, ease: 'power1.inOut', repeat: -1, repeatDelay: 0.25, onUpdate: function () {
+          var pt = vizLine.getPointAtLength(prog.p * vizLen); vdot.setAttribute('cx', pt.x); vdot.setAttribute('cy', pt.y);
+        } }));
+        vizAnims.push(gsap.to(vdot, { opacity: 1, duration: 0.3 }));
+        vizBars.forEach(function (b, i) {
+          var k = 0.72 + ((i * 37) % 23) / 100;
+          vizAnims.push(gsap.to(b.el, { attr: { y: b.y + b.h * (1 - k), height: b.h * k }, duration: 0.8 + i * 0.12, yoyo: true, repeat: -1, ease: 'sine.inOut' }));
+        });
+      });
+      vizTile.addEventListener('pointerleave', function () {
+        stopViz();
+        gsap.to(vdot, { opacity: 0, duration: 0.25 });
+        vizBars.forEach(function (b) { gsap.to(b.el, { attr: { y: b.y, height: b.h }, duration: 0.5, ease: 'power2.out' }); });
+      });
+    }
+    $$('.sk-radar .rg').forEach(function (r, i) {
+      var len = r.getTotalLength();
+      gsap.fromTo(r, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: 0.9, ease: 'power2.out', delay: i * 0.1, clearProps: 'strokeDasharray,strokeDashoffset', scrollTrigger: { trigger: '.sk-g', start: 'top 88%', once: true } });
+    });
+    gsap.fromTo('.sk-radar .blip', { scale: 0, opacity: 0, transformOrigin: '50% 50%' }, { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(2)', stagger: 0.12, delay: 0.6, scrollTrigger: { trigger: '.sk-g', start: 'top 88%', once: true } });
+    /* Automation: on hover a signal rides the dotted path itself, pausing briefly on each node. */
+    var flowTile = $('.sk-d'), flowPath = $('.sk-flow path'), fdot = $('.sk-flow .flow-dot'), flowTl = null;
+    if (flowTile && flowPath && fdot) {
+      var flowLen = flowPath.getTotalLength();
+      /* Each node's distance along the path, so every stop lands exactly on its circle. */
+      /* Node positions along the path, pre-measured once (the getPointAtLength search cost ~1 s on phones). */
+      var stops = [0, 136.39, 272.79, 406.64];
+      var fpos = { l: stops[0] };
+      var placeDot = function () { var q = flowPath.getPointAtLength(fpos.l); fdot.setAttribute('cx', q.x); fdot.setAttribute('cy', q.y); };
+      flowTile.addEventListener('pointerenter', function () {
+        if (flowTl) flowTl.kill();
+        gsap.killTweensOf(fdot);
+        fpos.l = stops[0]; placeDot();
+        flowTl = gsap.timeline({ repeat: -1, repeatDelay: 0.4, onUpdate: placeDot });
+        flowTl.fromTo(fdot, { opacity: 0 }, { opacity: 1, duration: 0.2 });
+        stops.slice(1).forEach(function (at) { flowTl.to(fpos, { l: at, duration: 0.6, ease: 'power1.inOut' }, '+=0.1'); });
+        flowTl.to(fdot, { opacity: 0, duration: 0.25 }, '+=0.1');
+      });
+      flowTile.addEventListener('pointerleave', function () { if (flowTl) { flowTl.kill(); flowTl = null; } gsap.to(fdot, { opacity: 0, duration: 0.2 }); });
+    }
+  }
+
+  /* ---------- Experience: the big year on the left follows the row you are reading ---------- */
+  var yearEl = $('#year'), yearNote = $('#yearNote'), crows = $$('.crow');
+  if (yearEl && crows.length && hasGsap) {
+    var curYear = crows[0].getAttribute('data-year');
+    var setYear = function (y, note, dir) {
+      if (y === curYear) return;
+      curYear = y;
+      var span = $('span', yearEl);
+      if (!anim) { span.textContent = y; yearNote.textContent = note; return; }
+      /* The old year slides out, the new one slides in from the other side (direction follows the scroll). */
+      gsap.to(span, { yPercent: dir > 0 ? -100 : 100, duration: 0.35, ease: 'power2.in', overwrite: true, onComplete: function () {
+        span.textContent = y; yearNote.textContent = note;
+        gsap.fromTo(span, { yPercent: dir > 0 ? 100 : -100 }, { yPercent: 0, duration: 0.7, ease: 'expo.out', overwrite: true });
+      } });
+    };
+    crows.forEach(function (row) {
+      ScrollTrigger.create({
+        trigger: row, start: 'top 38%', end: 'bottom 38%',
+        onToggle: function (s) { if (s.isActive) setYear(row.getAttribute('data-year'), row.getAttribute('data-note'), s.direction); }
+      });
+    });
+  }
+
+  /* ---------- Work: showcase (list on the left, preview on the right) ---------- */
+  var pjList = $('#pjList'), pjs = $$('.pj'), pv = $('#pv');
+  if (pjList && pjs.length && pv) {
+    var pvT = $('#pvT'), pvD = $('#pvD'), pvTag = $('#pvTag'), pvLive = $('#pvLive'), pvConf = $('#pvConf'), pvBuilt = $('#pvBuilt'), pvTabs = $('#pvTabs');
+    var pvImgs = [$('#pvImgA'), $('#pvImgB')], pvFront = 0, pjCurrent = 0, swapSeq = 0;
+    var pvFrame = $('#pvFrame'), pvCur = $('#pvCur');
+    var pagesOf = function (btn) { try { return JSON.parse(btn.getAttribute('data-pages') || '[]'); } catch (e) { return []; } };
+    var preload = function (i) { var b = pjs[i]; if (!b) return; var pg = pagesOf(b)[0]; if (pg) { var im = new Image(); im.src = pg.img; } };
+    /* Two image layers: the incoming one wipes in over the current one (down when moving forward, up when moving back). */
+    function showImage(src, alt, dir) {
+      var seq = ++swapSeq, cur = pvImgs[pvFront], nxt = pvImgs[1 - pvFront];
+      if (cur.getAttribute('src') === src) { cur.alt = alt; return; }
+      if (!anim) { cur.src = src; cur.alt = alt; return; }
+      nxt.alt = alt;
+      var reveal = function () {
+        if (seq !== swapSeq) return;
+        pvFront = 1 - pvFront;
+        cur.classList.add('is-back'); cur.classList.remove('is-front');
+        nxt.classList.add('is-front'); nxt.classList.remove('is-back');
+        cur.setAttribute('aria-hidden', 'true'); nxt.removeAttribute('aria-hidden');
+        gsap.fromTo(nxt, { clipPath: dir < 0 ? 'inset(0 0 100% 0)' : 'inset(100% 0 0 0)', scale: 1.04 }, {
+          clipPath: 'inset(0% 0 0% 0)', scale: 1, duration: 0.85, ease: 'expo.out', overwrite: true,
+          onComplete: function () { if (seq === swapSeq) { cur.classList.remove('is-back'); gsap.set(cur, { clearProps: 'clipPath,transform' }); } }
+        });
+      };
+      if (nxt.getAttribute('src') === src && nxt.complete && nxt.naturalWidth) { reveal(); }
+      else { nxt.onload = function () { nxt.onload = null; reveal(); }; nxt.src = src; }
+    }
+    function renderTabs(btn) {
+      var pages = pagesOf(btn), alt = btn.getAttribute('data-alt') || '';
+      pvTabs.innerHTML = '';
+      var rowLabel = function (text) { var l = document.createElement('span'); l.className = 'pv-rowlabel mono'; l.textContent = text; pvTabs.appendChild(l); };
+      pvTabs.setAttribute('role', pages.length < 2 ? 'group' : 'tablist');
+      if (pvFrame) { if (pages.length < 2) pvFrame.removeAttribute('role'); else { pvFrame.setAttribute('role', 'tabpanel'); pvFrame.setAttribute('aria-label', 'Selected dashboard page'); } }
+      if (pages.length < 2) {
+        /* Single-page dashboards get highlight tags (plain, with a marker) instead of page tabs (pills). */
+        var tags = (btn.getAttribute('data-tags') || '').split(',').map(function (t) { return t.trim(); }).filter(Boolean);
+        pvTabs.classList.toggle('is-empty', !tags.length);
+        if (tags.length) rowLabel('Highlights');
+        tags.forEach(function (t) { var sp = document.createElement('span'); sp.className = 'ptag'; sp.textContent = t; pvTabs.appendChild(sp); });
+        return;
+      }
+      pvTabs.classList.remove('is-empty');
+      rowLabel('Pages');
+      pages.forEach(function (pg, k) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'tab' + (k === 0 ? ' is-active' : ''); b.textContent = pg.label;
+        b.setAttribute('role', 'tab'); b.setAttribute('aria-selected', k === 0 ? 'true' : 'false');
+        b.setAttribute('aria-controls', 'pvFrame'); b.tabIndex = k === 0 ? 0 : -1;
+        b.addEventListener('click', function () {
+          $$('.tab', pvTabs).forEach(function (t) { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); t.tabIndex = -1; });
+          b.classList.add('is-active'); b.setAttribute('aria-selected', 'true'); b.tabIndex = 0;
+          showImage(pg.img, alt + ', ' + pg.label, 1);
+        });
+        pvTabs.appendChild(b);
+      });
+      pvTabs.onkeydown = function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        var ts = $$('.tab', pvTabs); var i = ts.indexOf(document.activeElement);
+        if (i < 0) return;
+        e.preventDefault();
+        var nx = ts[(i + (e.key === 'ArrowRight' ? 1 : ts.length - 1)) % ts.length];
+        nx.click(); nx.focus();
+      };
+    }
+    function fillText(btn) {
+      pvT.textContent = btn.getAttribute('data-title');
+      pvD.textContent = btn.getAttribute('data-desc');
+      pvTag.textContent = btn.getAttribute('data-tag');
+      pvBuilt.textContent = btn.getAttribute('data-built');
+      var link = btn.getAttribute('data-link');
+      if (link) { pvLive.href = link; pvLive.hidden = false; } else { pvLive.removeAttribute('href'); pvLive.hidden = true; }
+      pvConf.hidden = btn.getAttribute('data-conf') !== '1';
+      if (pvFrame) pvFrame.classList.toggle('is-link', !!link);
+    }
+    function selectProject(i, instant) {
+      if (!pjs[i] || (i === pjCurrent && !instant)) return;
+      var dir = i > pjCurrent ? 1 : -1, btn = pjs[i];
+      pjCurrent = i;
+      pjs.forEach(function (b, k) { b.classList.toggle('is-active', k === i); b.setAttribute('aria-selected', k === i ? 'true' : 'false'); b.tabIndex = k === i ? 0 : -1; });
+      pv.setAttribute('aria-labelledby', btn.id);
+      if (anim && !instant) {
+        gsap.to('.pv-info > *', { y: -8, opacity: 0, duration: 0.2, ease: 'power2.in', overwrite: true, onComplete: function () {
+          fillText(btn);
+          gsap.fromTo('.pv-info > *', { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: 'expo.out', stagger: 0.06, overwrite: true });
+        } });
+      } else { fillText(btn); }
+      renderTabs(btn);
+      var first = pagesOf(btn)[0];
+      if (first) showImage(first.img, btn.getAttribute('data-alt') || '', dir);
+      if (!instant) { preload(i + 1); preload(i - 1); }
+      if (!instant && getComputedStyle(pjList).flexDirection === 'row' && btn.scrollIntoView) btn.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+    }
+    pjs.forEach(function (b, i) { b.addEventListener('click', function () { selectProject(i); }); });
+    pjList.addEventListener('keydown', function (e) {
+      var n = null;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') n = (pjCurrent + 1) % pjs.length;
+      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') n = (pjCurrent - 1 + pjs.length) % pjs.length;
+      else if (e.key === 'Home') n = 0;
+      else if (e.key === 'End') n = pjs.length - 1;
+      if (n === null) return;
+      e.preventDefault(); selectProject(n); pjs[n].focus();
+    });
+    selectProject(0, true);
+    /* Warm the neighbouring previews only once the section approaches. */
+    if (hasGsap) { ScrollTrigger.create({ trigger: '#work', start: 'top bottom', once: true, onEnter: function () { preload(1); } }); } else { preload(1); }
+    /* The preview is clickable for public dashboards; the label follows the cursor to say so (fine pointers only). */
+    if (pvFrame) {
+      pvFrame.addEventListener('click', function () { if (!pvLive.hidden && pvLive.href) window.open(pvLive.href, '_blank', 'noopener'); });
+      if (anim && fine && pvCur) {
+        var cx = gsap.quickTo(pvCur, 'x', { duration: 0.5, ease: 'power3' }), cy = gsap.quickTo(pvCur, 'y', { duration: 0.5, ease: 'power3' });
+        pvFrame.addEventListener('pointerenter', function (e) { var r = pvFrame.getBoundingClientRect(); gsap.set(pvCur, { x: e.clientX - r.left, y: e.clientY - r.top }); pvFrame.classList.add('is-hover'); });
+        pvFrame.addEventListener('pointermove', function (e) { var r = pvFrame.getBoundingClientRect(); cx(e.clientX - r.left); cy(e.clientY - r.top); });
+        pvFrame.addEventListener('pointerleave', function () { pvFrame.classList.remove('is-hover'); });
+      }
+    }
+  }
+
+  /* ---------- Side project (Price Radar): page tabs wipe the screenshot in, the product count ticks up ---------- */
+  var rdTabs = $$('.rd-tabs .tab'), rdImgs = $$('.rd-img');
+  if (rdTabs.length && rdImgs.length === 2) {
+    var rdFront = 0, rdSeq = 0, rdAt = 0;
+    /* Same motion as the Work showcase page tabs: the new screenshot wipes up from the bottom while settling
+       from a slight zoom. The image is decoded first so the wipe never starts on a hitch. */
+    var rdShow = function (src, alt) {
+      var seq = ++rdSeq, cur = rdImgs[rdFront], nxt = rdImgs[1 - rdFront];
+      if (cur.getAttribute('src') === src) { cur.alt = alt; return; }
+      if (!anim) { cur.src = src; cur.alt = alt; return; }
+      nxt.alt = alt;
+      var reveal = function () {
+        if (seq !== rdSeq) return;
+        rdFront = 1 - rdFront;
+        cur.classList.add('is-back'); cur.classList.remove('is-front');
+        nxt.classList.add('is-front'); nxt.classList.remove('is-back');
+        cur.setAttribute('aria-hidden', 'true'); nxt.removeAttribute('aria-hidden');
+        gsap.fromTo(nxt, { clipPath: 'inset(100% 0 0 0)', scale: 1.04 }, {
+          clipPath: 'inset(0% 0 0% 0)', scale: 1, duration: 0.85, ease: 'expo.out', overwrite: true,
+          onComplete: function () { if (seq === rdSeq) { cur.classList.remove('is-back'); gsap.set(cur, { clearProps: 'clipPath,transform' }); } }
+        });
+      };
+      var ready = function () { (nxt.decode ? nxt.decode() : Promise.resolve()).catch(function () {}).then(reveal); };
+      if (nxt.getAttribute('src') === src && nxt.complete && nxt.naturalWidth) { ready(); }
+      else { nxt.onload = function () { nxt.onload = null; ready(); }; nxt.src = src; }
+    };
+    rdTabs.forEach(function (t, i) {
+      t.addEventListener('click', function () {
+        if (i === rdAt) return;
+        rdAt = i;
+        rdTabs.forEach(function (x, k) { x.classList.toggle('is-active', k === i); x.setAttribute('aria-pressed', k === i ? 'true' : 'false'); });
+        rdShow(t.getAttribute('data-img'), 'Price Radar, ' + t.textContent);
+      });
+    });
+    /* Warm the other pages once the section is near, so the first switch is instant. */
+    var rdWarm = function () { rdTabs.forEach(function (t) { var im = new Image(); im.src = t.getAttribute('data-img'); }); };
+    if (hasGsap) ScrollTrigger.create({ trigger: '#radar', start: 'top bottom', once: true, onEnter: rdWarm }); else rdWarm();
+  }
+  $$('.rd-num[data-to]').forEach(function (el) {
+    var to = parseInt(el.getAttribute('data-to'), 10), fmt = function (v) { return Math.round(v).toLocaleString('en-US'); };
+    if (!anim) { el.textContent = fmt(to); return; }
+    var sr = document.createElement('span'); sr.className = 'sr-only'; sr.textContent = fmt(to);
+    el.parentNode.insertBefore(sr, el); el.setAttribute('aria-hidden', 'true');
+    el.textContent = fmt(0);
+    ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: function () {
+      var o = { v: 0 }; gsap.to(o, { v: to, duration: 1.6, ease: 'power3.out', onUpdate: function () { el.textContent = fmt(o.v); } });
+    } });
+  });
+  var rdFrame = $('#rdFrame'), rdCur = $('.rd-cur');
+  if (rdFrame && rdCur && anim && fine) {
+    var rcx = gsap.quickTo(rdCur, 'x', { duration: 0.5, ease: 'power3' }), rcy = gsap.quickTo(rdCur, 'y', { duration: 0.5, ease: 'power3' });
+    rdFrame.addEventListener('pointerenter', function (e) { var r = rdFrame.getBoundingClientRect(); gsap.set(rdCur, { x: e.clientX - r.left, y: e.clientY - r.top }); rdFrame.classList.add('is-hover'); });
+    rdFrame.addEventListener('pointermove', function (e) { var r = rdFrame.getBoundingClientRect(); rcx(e.clientX - r.left); rcy(e.clientY - r.top); });
+    rdFrame.addEventListener('pointerleave', function () { rdFrame.classList.remove('is-hover'); });
+  }
+
+  if (yearEl && crows.length && !hasGsap && 'IntersectionObserver' in window) {
+    /* No-GSAP fallback: the big year still follows the row being read. */
+    var yio = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (en.isIntersecting) { $('span', yearEl).textContent = en.target.getAttribute('data-year'); yearNote.textContent = en.target.getAttribute('data-note'); }
+      });
+    }, { rootMargin: '-40% 0px -40% 0px' });
+    crows.forEach(function (r) { yio.observe(r); });
+  }
+
+  /* ---------- Automations: card stack ---------- */
+  var cards = $$('.card');
+  cards.forEach(function (c, i) { c.style.top = (navH() + 24 + i * 14) + 'px'; });
+  if (anim) {
+    var mm = gsap.matchMedia();
+    mm.add('(min-width: 701px) and (min-height: 641px)', function () {
+      cards.forEach(function (c, i) {
+        if (i === cards.length - 1) return;
+        gsap.fromTo(c, { scale: 1, '--dim': 0 }, {
+          scale: 0.96, '--dim': 0.32, ease: 'none',
+          scrollTrigger: { trigger: cards[i + 1], start: 'top bottom', end: function () { return 'top ' + (navH() + 24 + (i + 1) * 14); }, scrub: true }
+        });
+      });
+    });
+  }
+
+  /* ---------- Magnetic buttons (fine pointers only) ---------- */
+  if (anim && fine) {
+    $$('[data-magnet]').forEach(function (el) {
+      var xTo = gsap.quickTo(el, 'x', { duration: 0.6, ease: 'power3' }), yTo = gsap.quickTo(el, 'y', { duration: 0.6, ease: 'power3' });
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        xTo((e.clientX - (r.left + r.width / 2)) * 0.3); yTo((e.clientY - (r.top + r.height / 2)) * 0.3);
+      });
+      el.addEventListener('pointerleave', function () { xTo(0); yTo(0); });
+    });
+  }
+
+  /* ---------- Contact: the contour lines draw in, then the terrain drifts gently with scroll ---------- */
+  if (anim && $('.terrain')) {
+    $$('.terrain .c').forEach(function (c, i) {
+      var len = c.getTotalLength();
+      gsap.fromTo(c, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: 1.6, ease: 'power2.out', delay: i * 0.07, clearProps: 'strokeDasharray,strokeDashoffset', scrollTrigger: { trigger: '.terrain', start: 'top 85%', once: true } });
+    });
+    gsap.fromTo('.terrain svg', { yPercent: 4 }, { yPercent: -4, ease: 'none', scrollTrigger: { trigger: '#contact', start: 'top bottom', end: 'bottom top', scrub: true } });
+  }
+
+  /* ---------- Keep triggers honest after fonts/images settle ---------- */
+  if (hasGsap) {
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
+    window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+  }
+})();
+</script>
+</body>
+</html>

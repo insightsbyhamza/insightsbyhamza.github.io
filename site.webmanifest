@@ -1,0 +1,25 @@
+{
+  "name": "Muhammad Hamza - Data Analyst & Automation Specialist",
+  "short_name": "Hamza",
+  "description": "Data Analyst & Automation Specialist portfolio",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "uploads/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "uploads/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0a0e0b",
+  "background_color": "#0a0e0b",
+  "display": "standalone"
+}
