@@ -649,7 +649,7 @@ html.intro-lock{overflow:hidden}
 @media (hover:none){.sk:hover{transform:none;border-color:var(--line)}}
 @media (min-width:1001px) and (max-width:1340px){.sk-tool{min-width:3.2rem;max-width:4.6rem}.sk-tools{gap:.6rem .55rem}}
 @media (min-width:1100px) and (max-width:1320px){.num strong{font-size:.9rem}}
-@media (min-width:701px) and (max-height:640px){.card{position:relative;top:auto!important}}
+@media (min-width:701px) and (max-height:499px){.card{position:relative;top:auto!important}}
 @media (forced-colors:active){
   .tab.is-active,.pj.is-active{outline:3px solid CanvasText;outline-offset:2px}
   .pj-live{border:1px solid CanvasText}
@@ -1787,7 +1787,7 @@ html.intro-lock{overflow:hidden}
   cards.forEach(function (c, i) { c.style.top = (navH() + 24 + i * 14) + 'px'; });
   if (anim) {
     var mm = gsap.matchMedia();
-    mm.add('(min-width: 701px) and (min-height: 641px)', function () {
+    mm.add('(min-width: 701px) and (min-height: 500px)', function () {   /* excludes landscape phones, keeps 768px laptops */
       cards.forEach(function (c, i) {
         if (i === cards.length - 1) return;
         gsap.fromTo(c, { scale: 1, '--dim': 0 }, {
