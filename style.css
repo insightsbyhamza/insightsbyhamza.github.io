@@ -1710,3 +1710,9 @@ ul, ol { padding: 0; list-style: none; }
 /* all three send buttons in the same brand colour */
 .cta__sent-a .btn:not(.btn--brand) { background: var(--or); color: #0A0A0A; border: 0; }
 .cta__sent-a .btn:not(.btn--brand):hover { background: var(--or); filter: brightness(1.08); }
+/* intro title card with a word instead of a number (No-code): smaller so it fits the popup */
+.sc__big.sc__big--word { font-size: clamp(64px, 10vw, 150px); line-height: .9; }
+@media (max-width: 760px) { .sc__big.sc__big--word { font-size: 17vw; } }
+/* ID card: industries line, brighter than the old grey text, orange separators */
+.idc__ind { margin-top: 12px; font-size: 13.5px; font-weight: 600; line-height: 1.6; color: #E3DFD9; }
+.idc__ind i { font-style: normal; color: var(--or); font-weight: 800; padding: 0 2px; }

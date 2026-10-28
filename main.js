@@ -211,6 +211,35 @@
     a.fact = a.kicker;
     a.genres = ["Automation"];
   });
+  var AUTO_PIPES = AUTO.length;
+  /* no-code / CRM work, listed under its own heading after the coded pipelines */
+  var NOCODE = [
+    { id: "crm-lead-automation", mont: "CRM", title: "CRM & WhatsApp AI lead follow-up",
+      runtime: "16", runLabel: "lead automations, live",
+      kicker: "Every new lead gets an answer, a follow-up and a call slot.",
+      summary: "Ran the live AI WhatsApp assistant and 16 lead automations in LeadFlow Pro (HighLevel) for a renovation company: prompt engineering, call-booking rules, handover and complaint flows, follow-ups and a daily lead-source report.",
+      tools: ["LeadFlow Pro (HighLevel)", "WhatsApp", "AI assistant", "CRM"],
+      steps: ["New lead", "AI WhatsApp reply", "Qualify", "Book a call", "Follow-up + report"] },
+    { id: "n8n-lead-system", mont: "n8n", title: "Lead system rebuilt in n8n",
+      runtime: "Self-hosted", runLabel: "replaces a €500/month platform",
+      kicker: "The same lead system, owned instead of rented.",
+      summary: "Wrote a spec of every live automation and rebuilt it in self-hosted n8n: AI WhatsApp assistant, lead intake from the website, Meta lead ads and WhatsApp, Google Calendar booking, alerts and follow-ups, with a two-way HubSpot CRM sync. Covered by automated tests; server go-live in preparation.",
+      tools: ["n8n", "WhatsApp Cloud API", "HubSpot", "Google Calendar"],
+      steps: ["Lead intake", "AI assistant", "Calendar booking", "HubSpot sync", "Alerts + follow-ups"] },
+    { id: "landbot-whatsapp-bot", mont: "Landbot", title: "Bilingual WhatsApp case-reporting bot",
+      runtime: "Urdu + English", runLabel: "guided WhatsApp intake",
+      kicker: "A guided WhatsApp form in the reporter's own language.",
+      summary: "A Landbot WhatsApp bot lets the reporter pick Urdu or English, then guides them with buttons through case type, province and city, collects the case details, place and a contact number, and hands the report to an agent. An answer outside the menu loops back to the menu.",
+      tools: ["Landbot", "WhatsApp"],
+      steps: ["Choose language", "Case type", "Province + city", "Details + contact", "Hand-off to agent"] }
+  ];
+  NOCODE.forEach(function (a, i) {
+    a.kind = "auto"; a.group = "nocode";
+    a.n = AUTO_PIPES + i + 1;
+    a.code = "AUTO " + ("0" + a.n).slice(-2);
+    a.fact = a.kicker; a.genres = ["Automation"];
+    AUTO.push(a);
+  });
 
   var SEASONS = [
     { n: 2, role: "E-Commerce Officer", org: "Izoc Solutions", dates: "Apr 2020 – Jun 2022",
@@ -460,10 +489,15 @@
         '<span class="opt__txt"><span class="opt__k">' + esc(it.eye) + "</span><b>" + esc(it.title) + "</b><small>" + esc(it.tools.join(" · ")) + "</small></span></div>";
     }).join("");
 
-    LISTS[T_AUTO].innerHTML = AUTO.map(function (a, k) {
+    function aOpt(a, k) {
       return '<div class="opt opt--auto"' + optAttrs(T_AUTO, k) + '><span class="opt__n" aria-hidden="true">' + ("0" + a.n).slice(-2) + "</span>" +
         '<span class="opt__txt"><b>' + esc(a.title) + "</b><small>" + esc(a.tools.join(" · ")) + "</small></span></div>";
-    }).join("");
+    }
+    LISTS[T_AUTO].innerHTML =
+      '<div role="group" aria-labelledby="st-g-pipe"><p class="opts__g" id="st-g-pipe" role="presentation">ETL &amp; AI pipelines</p>' +
+      AUTO.slice(0, AUTO_PIPES).map(aOpt).join("") +
+      '</div><div role="group" aria-labelledby="st-g-nocode"><p class="opts__g" id="st-g-nocode" role="presentation">No-code automation</p>' +
+      AUTO.slice(AUTO_PIPES).map(function (a, k) { return aOpt(a, AUTO_PIPES + k); }).join("") + "</div>";
 
     LISTS[T_PROC].innerHTML = PROC.map(function (p, k) {
       return '<div class="opt opt--step"' + optAttrs(T_PROC, k) + '><span class="opt__txt"><span class="opt__k">Step ' + (k + 1) + "</span><b>" + esc(p.t) + "</b><small>" + esc(p.d) + "</small></span></div>";
@@ -621,7 +655,10 @@
     "newspaper-archive-scraper": "images/auto/newspaper-archive-scraper.webp",
     "fatwa-archive-scrapers": "images/auto/fatwa-archive-scrapers.webp",
     "speech-to-text": "images/auto/speech-to-text.webp",
-    "youtube-sentiment-mcp": "images/auto/youtube-sentiment-mcp.webp"
+    "youtube-sentiment-mcp": "images/auto/youtube-sentiment-mcp.webp",
+    "crm-lead-automation": "images/auto/crm-automation.webp",
+    "n8n-lead-system": "images/auto/no-code-automation.webp",
+    "landbot-whatsapp-bot": "images/auto/landbot-whatsapp-bot.webp"
   };
 
   function renderAuto(i) {
@@ -1047,14 +1084,18 @@
     "projects/social-media-monitoring/dash-social-media-severity.webp"
   ];
   var AUTO_COLLAGE = ["daily-media-monitoring", "urgent-case-alert", "facebook-instagram-scraper", "newspaper-archive-scraper",
-    "youtube-sentiment-mcp", "brand24-monitoring", "speech-to-text", "fatwa-archive-scrapers"].map(function (id) { return "images/auto/" + id + ".webp"; });
+    "youtube-sentiment-mcp", "brand24-monitoring", "speech-to-text", "fatwa-archive-scrapers", "crm-automation", "no-code-automation", "landbot-whatsapp-bot"].map(function (id) { return "images/auto/" + id + ".webp"; });
   var DASH_STYLE = (location.search.match(/dash=(wall|cuts|ring|tunnel|laptop|highlight)/) || [0, "highlight"])[1];
+  /* intro: the coded pipelines first, then a title card and the no-code work */
+  var MONT = AUTO.slice(0, AUTO_PIPES), MONT_NC = AUTO.slice(AUTO_PIPES);
   var SCENES = [
     { t: "mh", d: 1700 },
     { t: "big", d: 1800, big: "7<em>+</em>", line: "Years of experience" },
     { t: "box", d: 3800, imgs: DASH_COLLAGE },
     { t: "big", d: 1600, big: "8<em>+</em>", line: "Automations that run themselves" },
-    { t: "montage", d: 4800, cap: "Automations" },
+    { t: "montage", d: 5800, cap: "Automations" },
+    { t: "big", d: 1600, big: "No<em>-</em>code", line: "Automation", word: true },
+    { t: "montage", d: 3400, cap: "No-code automation", nc: true },
     { t: "words", d: 2500, big: "6<em>+</em>", line: "Industries", words: ["Media", "E-commerce", "Government", "HR", "Esports", "Insurance"] },
     { t: "logo", d: 2900, small: "Open to full-time roles & freelance projects." }
   ];
@@ -1079,7 +1120,7 @@
     switch (s.t) {
       case "mh": return '<div class="sc"' + st + '><div><p class="sc__mh" aria-hidden="true">MH</p><p class="sc__kicker" style="margin-top:18px">Data Analyst · Automation</p></div></div>';
       case "text": return '<div class="sc"' + st + '><div><p class="sc__kicker">' + s.kicker + '</p><p class="sc__line">' + s.line + '</p><p class="sc__small">' + s.small + "</p></div></div>";
-      case "big": return '<div class="sc"' + st + '><div><p class="sc__big">' + s.big + '</p><p class="sc__line">' + s.line + "</p></div></div>";
+      case "big": return '<div class="sc"' + st + '><div><p class="sc__big' + (s.word ? " sc__big--word" : "") + '">' + s.big + '</p><p class="sc__line">' + s.line + "</p></div></div>";
       case "wall":
         var rows = [0, 1, 2].map(function (r) {
           var set = s.imgs.slice(r * 3).concat(s.imgs.slice(0, r * 3));
@@ -1125,10 +1166,11 @@
           return '<span style="--k:' + k + ';--a:' + a + 'deg"><img src="' + src + '" alt=""></span>';
         }).join("") + '<p class="wall__cap">' + s.cap + "</p></div>";
       case "montage":
-        var per = s.d / AUTO.length;
-        return '<div class="sc sc--mont" style="--d:' + s.d + 'ms">' + AUTO.map(function (a, k) {
+        var list = s.nc ? MONT_NC : MONT;
+        var per = (s.d - 1000) / list.length; /* beats start ~1 s into the scene, so leave room for the last one */
+        return '<div class="sc sc--mont" style="--d:' + s.d + 'ms">' + list.map(function (a, k) {
           return '<figure class="mont" style="--k:' + k + ';--per:' + per + 'ms"><img src="' + (AUTO_IMG[a.id] || "") + '" alt="">' +
-            '<figcaption><b>' + a.runtime + '</b><span>' + a.title + "</span></figcaption></figure>";
+            '<figcaption><b>' + (a.mont || a.runtime) + '</b><span>' + a.title + "</span></figcaption></figure>";
         }).join("") + "</div>";
       case "collage": return '<div class="sc sc--collage" style="--d:' + s.d + 'ms;--cols:' + s.cols + '"><div class="clg">' +
         s.imgs.map(function (src, k) { return '<span style="--k:' + k + '"><img src="' + src + '" alt=""></span>'; }).join("") +
@@ -1145,7 +1187,7 @@
     if (s.t === "box") return "15+ Dashboards built";
     if (s.t === "hl") return s.h.name + ": " + s.h.num + " " + s.h.label;
     if (["collage", "wall", "cuts", "ring", "tunnel", "laptop"].indexOf(s.t) >= 0) return s.cap;
-    if (s.t === "montage") return AUTO.map(function (a) { return a.title; }).join(", ");
+    if (s.t === "montage") return (s.nc ? MONT_NC : MONT).map(function (a) { return a.title; }).join(", ");
     return s.t === "shot" ? s.cap : s.t === "logo" ? "I turn your data into dashboards and your busywork into automation. " + s.small : s.t === "mh" ? "MH. Data Analyst · Automation." : tmp.textContent.replace(/\s+/g, " ").trim();
   }
 
