@@ -78,15 +78,6 @@
   var CONF_NOTE = "Confidential. The underlying records are not shown; details on request.";
   var CONF = [
     {
-      id: "social-media-monitoring", kind: "conf", title: "Social Media Monitoring",
-      img: "projects/social-media-monitoring/dash-social-media-monitoring.webp",
-      kicker: "Where flagged content is concentrating",
-      fact: "Flagged content by platform, category and district.",
-      summary: "Flagged content broken down by platform, category and district, with a geo severity map and a region shape map so concentration is visible at a glance.",
-      facts: ["Platform & category breakdowns", "District-level patterns", "Geo severity map", "Region shape map"],
-      tools: BI, genres: ["Media monitoring", "Geo analysis"]
-    },
-    {
       id: "sentiment-analysis", kind: "conf", title: "Sentiment Analysis",
       img: "projects/sentiment-analysis/dash-sentiment-1.webp",
       kicker: "The mood behind the coverage",
@@ -95,24 +86,6 @@
       facts: ["Overall sentiment split", "Positive deep-dive", "Negative deep-dive", "Neutral deep-dive"],
       note: "Labels come from an LLM classifier. No accuracy figure was measured, so none is claimed.",
       tools: ["Power BI", "Python", "DeepSeek API"], genres: ["Sentiment", "LLM classification"]
-    },
-    {
-      id: "content-risk-severity", kind: "conf", title: "Content Risk & Severity",
-      img: "projects/content-risk-severity/dash-sensitivity.webp",
-      kicker: "How dangerous, and exactly where",
-      fact: "Posts scored by content sensitivity, severity mapped by district.",
-      summary: "Not every flagged post carries the same risk. Each post is scored by content sensitivity, severity is mapped by district, and likely targets are surfaced.",
-      facts: ["Sensitivity scoring", "Severity by district", "Likely targets"],
-      tools: BI, genres: ["Risk scoring", "Geo analysis"]
-    },
-    {
-      id: "media-workers-insurance", kind: "conf", title: "Media Workers Insurance",
-      img: "projects/media-workers-insurance/dash-media-workers.webp",
-      kicker: "A welfare scheme at a glance",
-      fact: "Registered workers by province, city and news agency.",
-      summary: "A view of a media workers' welfare scheme: the registered workforce by province, city and news agency, with filters so administrators can slice the numbers quickly.",
-      facts: ["Workers by province", "By city", "By news agency", "Gender filter"],
-      tools: BI, genres: ["Public sector", "Insurance", "Welfare"]
     }
   ];
 
@@ -176,14 +149,6 @@
       tools: ["Python", "BeautifulSoup", "Selenium", "Playwright", "DeepSeek API"],
       steps: ["Source navigation", "Date filtering", "Article extraction", "Sentiment processing", "PDF reporting"],
       input: "29+ newspaper archives", output: "JSON/CSV dataset and PDF report" },
-    { id: "fatwa-archive-scrapers", title: "Multi-language fatwa archive scrapers", visual: "multilang",
-      runtime: "~300K rows", runLabel: "structured rows",
-      kicker: "Many sites, many languages, one dataset.",
-      problem: "Several archives in different languages and layouts had to become one analysable dataset.",
-      summary: "Each website got its own scraper, because every site has a different layout and language. Each one outputs clean JSON and CSV, keeping the text in its source language.",
-      tools: ["Python", "BeautifulSoup", "Playwright"],
-      steps: ["Site-specific parsing", "Multilingual extraction", "Cleaning", "JSON/CSV export"],
-      input: "Multi-language archive websites", output: "Clean JSON and CSV in the source language" },
     { id: "speech-to-text", title: "Speech-to-text transcription", visual: "wave",
       runtime: "Multi-language", runLabel: "audio to text",
       kicker: "Broadcast audio, searchable like print.",
@@ -202,7 +167,7 @@
       input: "A question about a video", output: "On-demand audience sentiment" }
   ];
   /* order for hiring managers: strongest business pipelines first, niche archive work last */
-  var AUTO_ORDER = ["daily-media-monitoring", "urgent-case-alert", "facebook-instagram-scraper", "newspaper-archive-scraper", "youtube-sentiment-mcp", "brand24-monitoring", "speech-to-text", "fatwa-archive-scrapers"];
+  var AUTO_ORDER = ["daily-media-monitoring", "urgent-case-alert", "facebook-instagram-scraper", "newspaper-archive-scraper", "youtube-sentiment-mcp", "brand24-monitoring", "speech-to-text"];
   AUTO.sort(function (x, y) { return AUTO_ORDER.indexOf(x.id) - AUTO_ORDER.indexOf(y.id); });
   AUTO.forEach(function (a, i) {
     a.kind = "auto";
@@ -221,7 +186,7 @@
       tools: ["LeadFlow Pro (HighLevel)", "WhatsApp", "AI assistant", "CRM"],
       steps: ["New lead", "AI WhatsApp reply", "Qualify", "Book a call", "Follow-up + report"] },
     { id: "n8n-lead-system", mont: "n8n", title: "Lead system rebuilt in n8n",
-      runtime: "Self-hosted", runLabel: "replaces a €500/month platform",
+      runtime: "Self-hosted", runLabel: "replaces a paid platform",
       kicker: "The same lead system, owned instead of rented.",
       summary: "Wrote a spec of every live automation and rebuilt it in self-hosted n8n: AI WhatsApp assistant, lead intake from the website, Meta lead ads and WhatsApp, Google Calendar booking, alerts and follow-ups, with a two-way HubSpot CRM sync. Covered by automated tests; server go-live in preparation.",
       tools: ["n8n", "WhatsApp Cloud API", "HubSpot", "Google Calendar"],
@@ -256,7 +221,7 @@
         { t: "Leading the store", tag: "Team lead", d: "Led WordPress e-commerce operations: listings, inventory, conversion optimisation and A/B testing." },
         { t: "Stock & orders", tag: "ERP", d: "Managed the company ERP for stock levels and purchase orders." }
       ] },
-    { n: 4, role: "Data Analyst", org: "Press Information Department", dates: "Apr 2023 – Jun 2026",
+    { n: 4, role: "Data Analyst", org: "Public Sector Organisation", dates: "Apr 2023 – Jun 2026",
       synopsis: "Power BI dashboards, Python reporting automation, DeepSeek media monitoring, 29+ scrapers and alert pipelines.",
       eps: [
         { t: "Interactive dashboards", tag: "Power BI", d: "Designed interactive Power BI dashboards across multiple datasets." },
@@ -375,11 +340,6 @@
   };
   /* pages inside each dashboard (shown with a switcher, like the Price Radar screens) */
   var PAGES = {
-    "social-media-monitoring": [
-      { label: "Dashboard", src: "projects/social-media-monitoring/dash-social-media-monitoring.webp", cap: "Flagged content by platform and province, narrative types, the monthly trend and likely targets." },
-      { label: "Severity map", src: "projects/social-media-monitoring/dash-social-media-severity.webp", cap: "Every item graded by severity, with district totals and a geo map of where it concentrates." },
-      { label: "Shape map", src: "projects/social-media-monitoring/dash-social-media-shape.webp", cap: "Category counts beside a district shape map, with population and context figures for the selected area." }
-    ],
     "sentiment-analysis": [
       { label: "Overview", src: "projects/sentiment-analysis/dash-sentiment-1.webp", cap: "The overall positive, negative and neutral split, mapped by district." },
       { label: "Positive", src: "projects/sentiment-analysis/dash-sentiment-2.webp", cap: "Drill-through to positive items only, filterable by province and district." },
@@ -653,7 +613,6 @@
     "brand24-monitoring": "images/auto/brand24-monitoring.webp",
     "facebook-instagram-scraper": "images/auto/facebook-instagram-scraper.webp",
     "newspaper-archive-scraper": "images/auto/newspaper-archive-scraper.webp",
-    "fatwa-archive-scrapers": "images/auto/fatwa-archive-scrapers.webp",
     "speech-to-text": "images/auto/speech-to-text.webp",
     "youtube-sentiment-mcp": "images/auto/youtube-sentiment-mcp.webp",
     "crm-lead-automation": "images/auto/crm-automation.webp",
@@ -1074,17 +1033,17 @@
   var tSkip = $("#trailerSkip"), tNext = $("#trailerNext"), playBtn = $("#playTrailer");
   var DASH_COLLAGE = [
     "projects/sales-supply-performance/dash-sales-supply.webp",
-    "projects/social-media-monitoring/dash-social-media-monitoring.webp",
+    "projects/tekken-8-career-analytics/dash-arslan-ash-2.webp",
     "projects/hr-attrition-analytics/dash-hr-overview.webp",
     "projects/sentiment-analysis/dash-sentiment-1.webp",
     "projects/amazon-product-analytics/dash-amazon-sales.webp",
-    "projects/content-risk-severity/dash-sensitivity.webp",
+    "projects/amazon-product-analytics/dash-amazon-drillthrough.webp",
     "projects/tekken-8-career-analytics/dash-arslan-ash.webp",
-    "projects/media-workers-insurance/dash-media-workers.webp",
-    "projects/social-media-monitoring/dash-social-media-severity.webp"
+    "projects/hr-attrition-analytics/dash-hr-drillthrough.webp",
+    "projects/sentiment-analysis/dash-sentiment-2.webp"
   ];
   var AUTO_COLLAGE = ["daily-media-monitoring", "urgent-case-alert", "facebook-instagram-scraper", "newspaper-archive-scraper",
-    "youtube-sentiment-mcp", "brand24-monitoring", "speech-to-text", "fatwa-archive-scrapers", "crm-automation", "no-code-automation", "landbot-whatsapp-bot"].map(function (id) { return "images/auto/" + id + ".webp"; });
+    "youtube-sentiment-mcp", "brand24-monitoring", "speech-to-text", "crm-automation", "no-code-automation", "landbot-whatsapp-bot"].map(function (id) { return "images/auto/" + id + ".webp"; });
   var DASH_STYLE = (location.search.match(/dash=(wall|cuts|ring|tunnel|laptop|highlight)/) || [0, "highlight"])[1];
   /* intro: the coded pipelines first, then a title card and the no-code work */
   var MONT = AUTO.slice(0, AUTO_PIPES), MONT_NC = AUTO.slice(AUTO_PIPES);
