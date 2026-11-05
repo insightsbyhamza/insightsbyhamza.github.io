@@ -391,7 +391,7 @@
       { label: "Tournaments", src: "projects/tekken-8-career-analytics/dash-arslan-ash-2.webp", cap: "Tournament results, finish distribution and the season-by-season record." }
     ]
   };
-  var ORDER = ["sales-supply-performance", "tekken-8-career-analytics", "amazon-product-analytics", "hr-attrition-analytics"];
+  var ORDER = ["sales-supply-performance", "amazon-product-analytics", "hr-attrition-analytics", "tekken-8-career-analytics"];
   var LIVE = ORDER.map(function (id) { return TOP.filter(function (d) { return d.id === id; })[0]; });
   var DITEMS = CONF.map(function (c) {
     return {
