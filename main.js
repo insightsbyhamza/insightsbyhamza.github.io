@@ -78,6 +78,15 @@
   var CONF_NOTE = "Confidential. The underlying records are not shown; details on request.";
   var CONF = [
     {
+      id: "social-media-monitoring", kind: "conf", title: "Social Media Monitoring",
+      img: "projects/social-media-monitoring/dash-social-media-monitoring.webp",
+      kicker: "Where flagged content is concentrating",
+      fact: "Flagged content by platform, category and district.",
+      summary: "Flagged content broken down by platform, category and district, with a geo severity map and a region shape map so concentration is visible at a glance.",
+      facts: ["Platform & category breakdowns", "District-level patterns", "Geo severity map", "Region shape map"],
+      tools: BI, genres: ["Media monitoring", "Geo analysis"]
+    },
+    {
       id: "sentiment-analysis", kind: "conf", title: "Sentiment Analysis",
       img: "projects/sentiment-analysis/dash-sentiment-1.webp",
       kicker: "The mood behind the coverage",
@@ -86,6 +95,24 @@
       facts: ["Overall sentiment split", "Positive deep-dive", "Negative deep-dive", "Neutral deep-dive"],
       note: "Labels come from an LLM classifier. No accuracy figure was measured, so none is claimed.",
       tools: ["Power BI", "Python", "DeepSeek API"], genres: ["Sentiment", "LLM classification"]
+    },
+    {
+      id: "content-risk-severity", kind: "conf", title: "Content Risk & Severity",
+      img: "projects/content-risk-severity/dash-sensitivity.webp",
+      kicker: "How dangerous, and exactly where",
+      fact: "Posts scored by content sensitivity, severity mapped by district.",
+      summary: "Not every flagged post carries the same risk. Each post is scored by content sensitivity, severity is mapped by district, and likely targets are surfaced.",
+      facts: ["Sensitivity scoring", "Severity by district", "Likely targets"],
+      tools: BI, genres: ["Risk scoring", "Geo analysis"]
+    },
+    {
+      id: "media-workers-insurance", kind: "conf", title: "Media Workers Insurance",
+      img: "projects/media-workers-insurance/dash-media-workers.webp",
+      kicker: "A welfare scheme at a glance",
+      fact: "Registered workers by province, city and news agency.",
+      summary: "A view of a media workers' welfare scheme: the registered workforce by province, city and news agency, with filters so administrators can slice the numbers quickly.",
+      facts: ["Workers by province", "By city", "By news agency", "Gender filter"],
+      tools: BI, genres: ["Public sector", "Insurance", "Welfare"]
     }
   ];
 
@@ -340,6 +367,11 @@
   };
   /* pages inside each dashboard (shown with a switcher, like the Price Radar screens) */
   var PAGES = {
+    "social-media-monitoring": [
+      { label: "Dashboard", src: "projects/social-media-monitoring/dash-social-media-monitoring.webp", cap: "Flagged content by platform and province, narrative types, the monthly trend and likely targets." },
+      { label: "Severity map", src: "projects/social-media-monitoring/dash-social-media-severity.webp", cap: "Every item graded by severity, with district totals and a geo map of where it concentrates." },
+      { label: "Shape map", src: "projects/social-media-monitoring/dash-social-media-shape.webp", cap: "Category counts beside a district shape map, with population and context figures for the selected area." }
+    ],
     "sentiment-analysis": [
       { label: "Overview", src: "projects/sentiment-analysis/dash-sentiment-1.webp", cap: "The overall positive, negative and neutral split, mapped by district." },
       { label: "Positive", src: "projects/sentiment-analysis/dash-sentiment-2.webp", cap: "Drill-through to positive items only, filterable by province and district." },
